@@ -18,7 +18,8 @@ public enum BlockStates
     OnlyLeftTop,
     OnlyRightTop,
     OnlyLeftBottom,
-    OnlyRightBottom
+    OnlyRightBottom,
+    Mined
 }
 
 [CreateAssetMenu(fileName = "New Block", menuName = "Block/Create")]
@@ -82,7 +83,34 @@ public class GenericBlockData : ScriptableObject {
                 
             case BlockStates.Normal:
                 return m_Normal;
-                break;
+            case BlockStates.LeftTopMissing:
+                return m_LeftTopMissing;
+            case BlockStates.RightTopMissing:
+                return m_RightTopMissing;
+            case BlockStates.LeftBottomMissing:
+                return m_LeftBottomMissing;
+            case BlockStates.RightBottomMissing:
+                return m_RightBottomMissing;
+            case BlockStates.OnlyBottom:
+                return m_OnlyBottom;
+            case BlockStates.OnlyTop:
+                return m_OnlyTop;
+            case BlockStates.OnlyLeft:
+                return m_OnlyLeft;
+            case BlockStates.OnlyRight:
+                return m_OnlyRight;
+            case BlockStates.DiagonalLeftBottomRightTop:
+                return m_DiagonalLeftBottomRightTop;
+            case BlockStates.DiagonalRightBottomLeftTop:
+                return m_DiagonalRightBottomLeftTop;
+            case BlockStates.OnlyLeftTop:
+                return m_OnlyLeftTop;
+            case BlockStates.OnlyRightTop:
+                return m_OnlyRightTop;
+            case BlockStates.OnlyLeftBottom:
+                return m_OnlyLeftBottom;
+            case BlockStates.OnlyRightBottom:
+                return m_OnlyRightBottom;
 
         }
     }
