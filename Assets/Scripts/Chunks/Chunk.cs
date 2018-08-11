@@ -19,6 +19,7 @@ public class Chunk : MonoBehaviour {
     [SerializeField]
     private GameOfLife m_CaveGenerator;
 
+    private bool m_Done = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,15 +29,33 @@ public class Chunk : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            GenerateChunk();
+            //StartCoroutine(GenerateChunk());
         }
 	}
 
-    public void GenerateChunk()
+    public void StartGeneration()
+    {
+        StartCoroutine(GenerateChunk());
+    }
+
+    public IEnumerator GenerateChunk()
     {
         Stack<GenericBlockData> blocks = m_Pool.GetObjectData();
 
         byte[,] caves = m_CaveGenerator.GenerateCave();
+
+        byte[,] diamons = m_CaveGenerator.GenerateOres(15);
+        yield return new WaitForEndOfFrame();
+        byte[,] emeralds = m_CaveGenerator.GenerateOres(85);
+        yield return new WaitForEndOfFrame();
+        byte[,] gold = m_CaveGenerator.GenerateOres(50);
+        yield return new WaitForEndOfFrame();
+        byte[,] iron = m_CaveGenerator.GenerateOres(110);
+        yield return new WaitForEndOfFrame();
+        byte[,] ruby = m_CaveGenerator.GenerateOres(75);
+        yield return new WaitForEndOfFrame();
+        byte[,] sapphire = m_CaveGenerator.GenerateOres(75);
+        yield return new WaitForEndOfFrame();
 
         int Xmax = caves.GetLength(0);
         int Ymax = caves.GetLength(1);
@@ -49,13 +68,54 @@ public class Chunk : MonoBehaviour {
                 {
                     Vector3 position = transform.position + new Vector3(x, y) * 1.5f;
                     BigBlock block = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                    BigBlock ore = null;
+
+                    //SpawnOre
+                    if (iron[x, y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(4));
+                        ore.gameObject.name = "Iron";
+                    }
+                    else if(emeralds[x,y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(2));
+                        ore.gameObject.name = "Emeralds";
+                    }
+                    else if (ruby[x, y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(5));
+                        ore.gameObject.name = "Ruby";
+                    }
+                    else if (sapphire[x, y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(6));
+                        ore.gameObject.name = "Sapphire";
+                    }
+                    else if (gold[x, y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(3));
+                        ore.gameObject.name = "Gold";
+                    }
+
+                    else if (diamons[x, y] > 15)
+                    {
+                        ore = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                        ore.Initialize(BlockServiceProvider.instance.GetOre(1));
+                        ore.gameObject.name = "Diamond";
+                    }
 
                     //LeftTop
-                    if(x-1 > 0 && y+1 < Ymax)
+                    if (x-1 > 0 && y+1 < Ymax)
                     {
                         if(caves[x-1, y+1] > 16)
                         {
                             block.SetBlockState(0, BlockState.Mined);
+                            if(ore != null) { ore.SetBlockState(0, BlockState.Mined); }
                         }
                     }
                     //Left
@@ -65,6 +125,11 @@ public class Chunk : MonoBehaviour {
                         {
                             block.SetBlockState(0, BlockState.Mined);
                             block.SetBlockState(2, BlockState.Mined);
+                            if (ore != null)
+                            {
+                                ore.SetBlockState(0, BlockState.Mined);
+                                ore.SetBlockState(2, BlockState.Mined);
+                            }
                         }
                     }
                     //LeftBottom
@@ -73,6 +138,7 @@ public class Chunk : MonoBehaviour {
                         if (caves[x - 1, y - 1] > 16)
                         {
                             block.SetBlockState(2, BlockState.Mined);
+                            if (ore != null) { ore.SetBlockState(2, BlockState.Mined); }
                         }
                     }
                     //Top
@@ -82,6 +148,11 @@ public class Chunk : MonoBehaviour {
                         {
                             block.SetBlockState(0, BlockState.Mined);
                             block.SetBlockState(1, BlockState.Mined);
+                            if (ore != null)
+                            {
+                                ore.SetBlockState(0, BlockState.Mined);
+                                ore.SetBlockState(1, BlockState.Mined);
+                            }
                         }
                     }
                     //Bottom
@@ -91,6 +162,11 @@ public class Chunk : MonoBehaviour {
                         {
                             block.SetBlockState(2, BlockState.Mined);
                             block.SetBlockState(3, BlockState.Mined);
+                            if (ore != null)
+                            {
+                                ore.SetBlockState(2, BlockState.Mined);
+                                ore.SetBlockState(3, BlockState.Mined);
+                            }
                         }
                     }
                     //RightTop
@@ -99,6 +175,7 @@ public class Chunk : MonoBehaviour {
                         if (caves[x + 1, y + 1] > 16)
                         {
                             block.SetBlockState(1, BlockState.Mined);
+                            if (ore != null) { ore.SetBlockState(1, BlockState.Mined); }
                         }
                     }
                     //Right
@@ -108,6 +185,11 @@ public class Chunk : MonoBehaviour {
                         {
                             block.SetBlockState(1, BlockState.Mined);
                             block.SetBlockState(3, BlockState.Mined);
+                            if (ore != null)
+                            {
+                                ore.SetBlockState(1, BlockState.Mined);
+                                ore.SetBlockState(3, BlockState.Mined);
+                            }
                         }
                     }
                     //RightBottom
@@ -116,12 +198,24 @@ public class Chunk : MonoBehaviour {
                         if (caves[x + 1, y - 1] > 16)
                         {
                             block.SetBlockState(3, BlockState.Mined);
+                            if (ore != null) { ore.SetBlockState(3, BlockState.Mined); }
                         }
                     }
 
                     block.UpdateBlock();
+                    block.transform.parent = this.transform;
+                    if (ore != null)
+                    {
+                        ore.UpdateBlock();
+                        ore.transform.parent = this.transform;
+                    }
+
+                    
                 }
             }
         }
+        m_Done = true;
     }
+
+    public bool done { get { return m_Done; } }
 }
