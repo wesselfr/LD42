@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fd31697e9ff794a9a1e856bb12d90f, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  m_Texture: {fileID: 0}
-  m_BlockName: 
+  m_BlockName: TestBlock
+  m_ID: 1
+  m_Texture: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
