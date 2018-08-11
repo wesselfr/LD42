@@ -2,6 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum BlockStates
+{
+    Normal,
+    LeftTopMissing,
+    RightTopMissing,
+    LeftBottomMissing,
+    RightBottomMissing,
+    OnlyBottom,
+    OnlyTop,
+    OnlyRight,
+    OnlyLeft,
+    DiagonalLeftBottomRightTop,
+    DiagonalRightBottomLeftTop,
+    OnlyLeftTop,
+    OnlyRightTop,
+    OnlyLeftBottom,
+    OnlyRightBottom
+}
+
 [CreateAssetMenu(fileName = "New Block", menuName = "Block/Create")]
 public class GenericBlockData : ScriptableObject {
 
@@ -49,9 +68,22 @@ public class GenericBlockData : ScriptableObject {
 
 
     #region Accesors
-    public Sprite sprite { get { return m_Texture; } }
     public string blockName { get { return m_BlockName; } }
     public int id { get { return m_ID; } }
     public int health { get { return m_HealthPoints; } }
     #endregion
+
+    public Sprite GetSprite(BlockStates state)
+    {
+        switch (state)
+        {
+            default:
+                return null;
+                
+            case BlockStates.Normal:
+                return m_Normal;
+                break;
+
+        }
+    }
 }

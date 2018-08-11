@@ -10,9 +10,6 @@ public enum BlockState
 public class SmallBlock : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer m_Renderer;
-
-    [SerializeField]
     private BigBlock m_BigBlock;
 
     private BlockState m_State = BlockState.Normal;
@@ -33,11 +30,6 @@ public class SmallBlock : MonoBehaviour
     {
         m_State = BlockState.Eaten;
         m_BigBlock.UpdateBlock();
-    }
-
-    public void SetSprite(Sprite sprite)
-    {
-        m_Renderer.sprite = sprite;
     }
 
     public BlockState state { get { return m_State; } }
