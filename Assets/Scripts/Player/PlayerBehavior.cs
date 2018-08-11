@@ -19,7 +19,6 @@ public enum PlayerAnimationState
     Squad,
     Jump,
     Fall,
-    Dash,
     Land,
     Mine,
     Eat
@@ -80,16 +79,19 @@ public class PlayerBehavior : MonoBehaviour
 
     void FixedUpdate()
     {
+        Mine();
         GroundCheck();
 
         _State.FixedUpdate();
 
+        SideCheck();
         ApplyGravity();
         ApplyFriction();
 
         SetRigidBodyVelocity();
-
+        SideCheck();
         FrictionEnd();
+        SideCheck();
         SetPreviousValues();
     }
 
@@ -147,7 +149,7 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void FrictionEnd()
     {
-        if (_AnimationState != PlayerAnimationState.Dash)
+        //if (_AnimationState != PlayerAnimationState.Dash)
         {
             if (Math.Sign(_Velocity.x) != Math.Sign(_PreVelocity.x) && _PreVelocity.x != 0)
             {
@@ -161,11 +163,11 @@ public class PlayerBehavior : MonoBehaviour
         int rays = 4;
         for (int i = 0; i < rays; i++)
         {
-            Vector2 pos = (new Vector2(_Collider.bounds.center.x, 0.2f + _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
+            Vector2 pos = (new Vector2(_Collider.bounds.center.x, _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
             pos.y -= _Collider.bounds.size.y * 0.5f;
-            Debug.DrawRay(pos, -transform.up * 0.3f, Color.red);
+            Debug.DrawRay(pos, -transform.up * 0.2f, Color.red);
 
-            if (Physics2D.Raycast(pos, -transform.up, 0.3f, _StandableMasks))
+            if (Physics2D.Raycast(pos, -transform.up, 0.2f, _StandableMasks))
             {
                 _Grounded = true;
                 break;
@@ -173,6 +175,52 @@ public class PlayerBehavior : MonoBehaviour
             else
             {
                 _Grounded = false;
+            }
+        }
+    }
+
+    public void SideCheck()
+    {
+        int rays = 4;
+
+        for (int i = 0; i < rays; i++)
+        {
+            //left
+            Vector2 leftPos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
+
+            Debug.DrawRay(leftPos, -transform.right * 0.2f, Color.red);
+
+            if (Physics2D.Raycast(leftPos, -transform.right, 0.2f, _StandableMasks) && _Velocity.x < 0)
+            {
+                _Velocity.x = 0;
+            }
+
+            //right
+            Vector2 rightPos = new Vector2(_Collider.bounds.max.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
+
+            Debug.DrawRay(rightPos, transform.right * 0.2f, Color.red);
+
+            if (Physics2D.Raycast(rightPos, transform.right, 0.2f, _StandableMasks) && _Velocity.x > 0)
+            {
+                _Velocity.x = 0;
+            }
+
+        }
+    }
+
+    public void SealingCheck()
+    {
+        int rays = 4;
+        for (int i = 0; i < rays; i++)
+        {
+            Vector2 pos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.max.y) + new Vector2(1, 0) * _Collider.bounds.size.x  / (rays - 1) * i;
+
+            Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
+
+            if (Physics2D.Raycast(pos, transform.up, 0.3f, _StandableMasks))
+            {
+                _Velocity.y = 0;
+                break;
             }
         }
     }
@@ -189,11 +237,11 @@ public class PlayerBehavior : MonoBehaviour
 
         if (Physics2D.Raycast(leftPos, leftDir, 0.1f, _StandableMasks))
         {
-            _Velocity.x += 1f;
+            _Velocity.x += 2f;
         }
         else if (Physics2D.Raycast(rightPos, rightDir, 0.1f, _StandableMasks))
         {
-            _Velocity.x -= 1f;
+            _Velocity.x -= 2f;
         }
     }
 
@@ -237,7 +285,6 @@ public class Idle : IState
     {
         _Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Idle);
-        _Player._Animator.Play("Nibba_Idle");
     }
 
     public void Update()
@@ -246,7 +293,7 @@ public class Idle : IState
         {
             _Player.SwitchState(new Walk(_Player));
         }
-        if (InputManager.instance._JumpButtonDown)
+        if (InputManager.instance._JumpButtonDown || InputManager.instance._UpButtonDown)
         {
             _Player.SwitchState(new Squad(_Player));
         }
@@ -291,21 +338,27 @@ public class Walk : IState
     {
         if (InputManager.instance.HorizontalDirection() == 0)
         {
-            _Player.SwitchState(new Slide(_Player));
+            if (_Player._Velocity.x >= _Player._MaxVelocity.x * 0.8f || _Player._Velocity.x <= -_Player._MaxVelocity.x * 0.8f)
+            {
+                _Player.SwitchState(new Slide(_Player));
+            }
+            else
+            {
+                _Player.SwitchState(new Idle(_Player));
+            }
         }
-        if (InputManager.instance._JumpButtonDown)
+        if (InputManager.instance._JumpButtonDown || InputManager.instance._UpButtonDown)
         {
             _Player.SwitchState(new Squad(_Player));
         }
 
-
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
-            _Player._Renderer.flipX = false;          
+            _Player._Renderer.flipX = true;          
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
-            _Player._Renderer.flipX = true;           
+            _Player._Renderer.flipX = false;           
         }
     }
 
@@ -361,7 +414,7 @@ public class Slide : IState
         {
             _Player.SwitchState(new Walk(_Player));
         }
-        if (InputManager.instance._JumpButtonDown)
+        if (InputManager.instance._JumpButtonDown || InputManager.instance._UpButtonDown)
         {
             _Player.SwitchState(new Squad(_Player));
         }
@@ -405,7 +458,7 @@ public class Squad : IState
     public Squad(PlayerBehavior player)
     {
         _Player = player;
-        ShortHopWindow = 0.08333333333f;
+        ShortHopWindow = 0.32f;
     }
 
     public void OnEnter()
@@ -472,10 +525,21 @@ public class Jump : IState
         //    if (_Player._CanDodge)
         //        _Player.SwitchState(new AirDodge(_Player));
         //}
+
+        if (Math.Sign(_Player._Velocity.x) > 0)
+        {
+            _Player._Renderer.flipX = true;
+        }
+        else if ((Math.Sign(_Player._Velocity.x) < 0))
+        {
+            _Player._Renderer.flipX = false;
+        }
     }
 
     public void FixedUpdate()
     {
+        _Player.SealingCheck();
+
         if (_Player._Velocity.y <= 0)
         {
             _Player.SwitchState(new Fall(_Player));
@@ -514,6 +578,15 @@ public class Fall : IState
         //    if (_Player._CanDodge)
         //        _Player.SwitchState(new AirDodge(_Player));
         //}
+
+        if (Math.Sign(_Player._Velocity.x) > 0)
+        {
+            _Player._Renderer.flipX = true;
+        }
+        else if ((Math.Sign(_Player._Velocity.x) < 0))
+        {
+            _Player._Renderer.flipX = false;
+        }
     }
 
     public void FixedUpdate()
@@ -586,7 +659,7 @@ public class Land : IState
     public Land(PlayerBehavior player)
     {
         _Player = player;
-        _TimeInSquad = 0.2f;
+        _TimeInSquad = 0.3f;
     }
 
     public void OnEnter()

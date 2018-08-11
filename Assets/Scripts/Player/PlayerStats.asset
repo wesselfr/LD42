@@ -13,10 +13,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AccelerationMultiplier: 100
   _FrictionMultiplier: 40
-  _FallForceMultiplier: 40
-  _JumpForce: 20
+  _FallForceMultiplier: 30
+  _JumpForce: 17
   _AirDodgeForce: 30
-  _MineRange: 3
+  _MineRange: 3.5
   _Velocity: {x: 0, y: 0}
   _PreVelocity: {x: 0, y: 0}
   _MaxVelocity: {x: 10, y: 30}
