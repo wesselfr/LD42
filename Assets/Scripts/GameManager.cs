@@ -67,8 +67,6 @@ public class GameManager : MonoBehaviour
         _CanKickNormal = (_TimeInBeat < 0.333f);
         _CanKickHard = (_TimeInBeat > 0.333f && _TimeInBeat < 0.666f);
         _CanKickHarder = (_TimeInBeat > 0.666f);
-
-        text.text = (_CurrentTime).ToString();
     }
 
 }

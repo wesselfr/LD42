@@ -3,16 +3,17 @@ using XboxCtrlrInput;
 
 public class InputManager : MonoBehaviour
 {
-
     public static InputManager instance;
     [SerializeField] private XboxController controller;
     [SerializeField] private bool _IsUsingController;
 
     //Inputs
     public bool _JumpButtonUp, _JumpButtonDown, _JumpButtonHeld;
-    public bool _PunchButtonUp, _PunchButtonDown, _PunchButtonHeld;
-    public bool _KickButtonUp, _KickButtonDown, _KickButtonHeld;
-    public float _LStickX, _LStickY, _LTrigger;
+    public bool _UpButtonUp, _UpButtonDown, _UpButtonHeld;
+    public bool _DownButtonUp, _DownButtonDown, _DownButtonHeld;
+    public bool _LeftButtonUp, _LeftButtonDown, _LeftButtonHeld;
+    public bool _RightButtonUp, _RightButtonDown, _RightButtonHeld;
+    public bool _MineButtonUp, _MineButtonDown, _MineButtonHeld;
 
     private void Awake()
     {
@@ -36,47 +37,119 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public int HorizontalDirection()
+    {
+        int dir = 0;
+
+        if (_LeftButtonDown || _LeftButtonHeld)
+        {
+            if (dir != -1)
+                dir -= 1;
+        }
+        if (_RightButtonDown || _RightButtonHeld)
+        {
+            if (dir != 1)
+                dir += 1;
+        }
+        if (_LeftButtonUp)
+        {
+            if (dir == -1)
+                dir += 1;
+        }
+        if (_RightButtonUp)
+        {
+            if (dir == 1)
+                dir -= 1;
+        }
+
+        return dir;
+    }
+
+    public int VericalDirection()
+    {
+        int dir = 0;
+
+        if (_DownButtonDown || _DownButtonHeld)
+        {
+            if (dir != -1)
+                dir -= 1;
+        }
+        else if (_UpButtonDown || _UpButtonHeld)
+        {
+            if (dir != 1)
+                dir += 1;
+        }
+        else if (_DownButtonUp)
+        {
+            if (dir == -1)
+                dir += 1;
+        }
+        else if (_UpButtonUp)
+        {
+            if (dir == 1)
+                dir -= 1;
+        }
+
+        return dir;
+    }
+
+
     private void GetInput()
     {
-        if (XCI.IsPluggedIn(controller))
+        // if (XCI.IsPluggedIn(controller))
         {
-            _LStickX = XCI.GetAxisRaw(XboxAxis.LeftStickX, controller);
-            _LStickY = XCI.GetAxisRaw(XboxAxis.LeftStickY, controller);
-
-            _LTrigger = XCI.GetAxisRaw(XboxAxis.LeftTrigger, controller);
-
-            _JumpButtonUp = XCI.GetButtonUp(XboxButton.Y, controller);
-            _JumpButtonDown = XCI.GetButtonDown(XboxButton.Y, controller);
-            _JumpButtonHeld = XCI.GetButton(XboxButton.Y, controller);
-
-            _PunchButtonUp = XCI.GetButtonUp(XboxButton.X, controller);
-            _PunchButtonDown = XCI.GetButtonDown(XboxButton.X, controller);
-            _PunchButtonHeld = XCI.GetButton(XboxButton.X, controller);
-
-            _KickButtonUp = XCI.GetButtonUp(XboxButton.A, controller);
-            _KickButtonDown = XCI.GetButtonDown(XboxButton.A, controller);
-            _KickButtonHeld = XCI.GetButton(XboxButton.A, controller);
+            //jump
+            _JumpButtonUp = XCI.GetButtonUp(XboxButton.B, controller);
+            _JumpButtonDown = XCI.GetButtonDown(XboxButton.B, controller);
+            _JumpButtonHeld = XCI.GetButton(XboxButton.B, controller);
         }
-        else
+        //else
         {
-            _LTrigger = BoolToInt(Input.GetKey(KeyCode.O));
+            //jump
+            _JumpButtonUp = Input.GetKeyUp(KeyCode.Space);
+            _JumpButtonDown = Input.GetKeyDown(KeyCode.Space);
+            _JumpButtonHeld = Input.GetKey(KeyCode.Space);
 
-            _LStickX = Input.GetAxisRaw("Horizontal");
-            _LStickY = Input.GetAxisRaw("Vertical");
+            // up/jump
+            _UpButtonUp = Input.GetKeyUp(KeyCode.W);
+            _UpButtonDown = Input.GetKeyDown(KeyCode.W);
+            _UpButtonHeld = Input.GetKey(KeyCode.W);
 
-            _JumpButtonUp = Input.GetKeyUp(KeyCode.I);
-            _JumpButtonDown = Input.GetKeyDown(KeyCode.I);
-            _JumpButtonHeld = Input.GetKey(KeyCode.I);
+            //down
+            _DownButtonUp = Input.GetKeyUp(KeyCode.S);
+            _DownButtonDown = Input.GetKeyDown(KeyCode.S);
+            _DownButtonHeld = Input.GetKey(KeyCode.S);
 
-            _PunchButtonUp = Input.GetKeyUp(KeyCode.J);
-            _PunchButtonDown = Input.GetKeyDown(KeyCode.J);
-            _PunchButtonHeld = Input.GetKey(KeyCode.J);
+            //left
+            _LeftButtonUp = Input.GetKeyUp(KeyCode.A);
+            _LeftButtonDown = Input.GetKeyDown(KeyCode.A);
+            _LeftButtonHeld = Input.GetKey(KeyCode.A);
 
-            _KickButtonUp = Input.GetKeyUp(KeyCode.K);
-            _KickButtonDown = Input.GetKeyDown(KeyCode.K);
-            _KickButtonHeld = Input.GetKey(KeyCode.K);
+            //left
+            _LeftButtonUp = Input.GetKeyUp(KeyCode.A);
+            _LeftButtonDown = Input.GetKeyDown(KeyCode.A);
+            _LeftButtonHeld = Input.GetKey(KeyCode.A);
+
+            //right
+            _RightButtonUp = Input.GetKeyUp(KeyCode.D);
+            _RightButtonDown = Input.GetKeyDown(KeyCode.D);
+            _RightButtonHeld = Input.GetKey(KeyCode.D);
+
+            //mine
+            _MineButtonUp = Input.GetMouseButtonUp(0);
+            _MineButtonDown = Input.GetMouseButtonDown(0);
+            _MineButtonHeld = Input.GetMouseButton(0);
         }
     }
+
+    public Vector3 GetMousePosition2DWorldSpace()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        return mousePosition;
+    }
+
 
     private int BoolToInt(bool boel)
     {

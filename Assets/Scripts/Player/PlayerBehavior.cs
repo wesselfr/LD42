@@ -29,7 +29,7 @@ public enum PlayerAnimationState
 public class PlayerBehavior : MonoBehaviour
 {
 
-    public IState _State;
+    public  IState _State;
     public PlayerAnimationState _AnimationState;
     public Animator _Animator;
     public SpriteRenderer _Renderer;
@@ -40,22 +40,12 @@ public class PlayerBehavior : MonoBehaviour
     public float _AccelerationMultiplier, _FrictionMultiplier;
     public float _FallForceMultiplier;
     public float _JumpForce, _AirDodgeForce;
+    public float _MineRange;
     public Vector2 _Velocity, _PreVelocity, _MaxVelocity;
 
     public LayerMask _StandableMasks;
     public bool _Grounded;
     public bool _CanDodge;
-    public bool _CanChain;
-
-    public Vector2 _HitBoxPosition;
-    public Vector2 _HitBoxSize;
-    public LayerMask _EnemyLayer;
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube((Vector2)transform.position + _HitBoxPosition, _HitBoxSize);
-    }
 
     void Awake()
     {
@@ -64,9 +54,15 @@ public class PlayerBehavior : MonoBehaviour
         _State = new Idle(this);
     }
 
-    void Start()
+    private void SetStats()
     {
-
+        _AccelerationMultiplier = _BaseStats._AccelerationMultiplier;
+        _FrictionMultiplier = _BaseStats._FrictionMultiplier;
+        _FallForceMultiplier = _BaseStats._FallForceMultiplier;
+        _JumpForce = _BaseStats._JumpForce;
+        _AirDodgeForce = _BaseStats._AirDodgeForce;
+        _MineRange = _BaseStats._MineRange;
+        _MaxVelocity = _BaseStats._MaxVelocity;
     }
 
     void GetComponents()
@@ -87,6 +83,7 @@ public class PlayerBehavior : MonoBehaviour
         GroundCheck();
 
         _State.FixedUpdate();
+
         ApplyGravity();
         ApplyFriction();
 
@@ -96,14 +93,25 @@ public class PlayerBehavior : MonoBehaviour
         SetPreviousValues();
     }
 
-    private void SetStats()
+    public void Mine()
     {
-        _AccelerationMultiplier = _BaseStats._AccelerationMultiplier;
-        _FrictionMultiplier = _BaseStats._FrictionMultiplier;
-        _FallForceMultiplier = _BaseStats._FallForceMultiplier;
-        _JumpForce = _BaseStats._JumpForce;
-        _AirDodgeForce = _BaseStats._AirDodgeForce;
-        _MaxVelocity = _BaseStats._MaxVelocity;
+
+        Vector3 pos = transform.position + new Vector3(0, _Collider.bounds.size.y * 0.5f);
+
+        Vector3 dir = (InputManager.instance.GetMousePosition2DWorldSpace() - pos).normalized;
+
+        Debug.DrawRay(pos, dir * _MineRange, Color.red);
+
+        RaycastHit2D hit = Physics2D.Raycast(pos, dir, _MineRange, _StandableMasks);
+
+        if (hit)
+        {
+            Debug.DrawLine(hit.transform.position, pos);
+            if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
+            {
+                hit.transform.GetComponent<SmallBlock>().MineBlock();
+            }
+        }
     }
 
     private void SetRigidBodyVelocity()
@@ -127,12 +135,10 @@ public class PlayerBehavior : MonoBehaviour
     }
     private void ApplyFriction()
     {
-
         if (_Velocity.x != 0)
         {
             _Velocity.x -= _FrictionMultiplier * Mathf.Sign(_Velocity.x) * Time.fixedDeltaTime;
         }
-
     }
 
     private void SetPreviousValues()
@@ -152,12 +158,14 @@ public class PlayerBehavior : MonoBehaviour
 
     public void GroundCheck()
     {
-        for (int i = 0; i < 4; i++)
+        int rays = 4;
+        for (int i = 0; i < rays; i++)
         {
-            Vector2 pos = (new Vector2(_Collider.bounds.center.x, _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (4 - 1) * i;
+            Vector2 pos = (new Vector2(_Collider.bounds.center.x, 0.2f + _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
             pos.y -= _Collider.bounds.size.y * 0.5f;
-            Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
-            if (Physics2D.Raycast(pos, -transform.up, 0.1f, _StandableMasks))
+            Debug.DrawRay(pos, -transform.up * 0.3f, Color.red);
+
+            if (Physics2D.Raycast(pos, -transform.up, 0.3f, _StandableMasks))
             {
                 _Grounded = true;
                 break;
@@ -166,6 +174,26 @@ public class PlayerBehavior : MonoBehaviour
             {
                 _Grounded = false;
             }
+        }
+    }
+
+    public void CorrectFalling()
+    {
+        Vector3 leftDir = new Vector3(-1, -1).normalized;
+        Vector3 rightDir = new Vector3(1, -1).normalized;
+        Vector3 leftPos = new Vector2(_Collider.bounds.min.x,_Collider.bounds.min.y);
+        Vector3 rightPos = new Vector3(_Collider.bounds.max.x,_Collider.bounds.min.y);
+
+        Debug.DrawRay(leftPos, leftDir * 0.1f, Color.red);
+        Debug.DrawRay(rightPos, rightDir * 0.1f, Color.red);
+
+        if (Physics2D.Raycast(leftPos, leftDir, 0.1f, _StandableMasks))
+        {
+            _Velocity.x += 1f;
+        }
+        else if (Physics2D.Raycast(rightPos, rightDir, 0.1f, _StandableMasks))
+        {
+            _Velocity.x -= 1f;
         }
     }
 
@@ -193,19 +221,7 @@ public class PlayerBehavior : MonoBehaviour
             SwitchState(new Fall(this));
         }
     }
-
-    public void Attack()
-    {
-        Collider2D[] hits = Physics2D.OverlapBoxAll((Vector2)transform.position + _HitBoxPosition, _HitBoxSize, 0, _EnemyLayer);
-
-        for (int i = 0; i < hits.Length; i++)
-        {
-            print("Hit");
-        }   
-    }
 }
-
-
 
 public class Idle : IState
 {
@@ -226,7 +242,7 @@ public class Idle : IState
 
     public void Update()
     {
-        if (InputManager.instance._LStickX != 0)
+        if (InputManager.instance.HorizontalDirection() != 0)
         {
             _Player.SwitchState(new Walk(_Player));
         }
@@ -234,11 +250,12 @@ public class Idle : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
-       
+
     }
 
     public void FixedUpdate()
     {
+        _Player.Mine();
         _Player._MaxVelocity = Vector2.Lerp(_Player._MaxVelocity, _Player._BaseStats._MaxVelocity, Time.fixedDeltaTime * 4);
 
         if (!_Player._Grounded)
@@ -272,7 +289,7 @@ public class Walk : IState
 
     public void Update()
     {
-        if (InputManager.instance._LStickX == 0)
+        if (InputManager.instance.HorizontalDirection() == 0)
         {
             _Player.SwitchState(new Slide(_Player));
         }
@@ -280,27 +297,27 @@ public class Walk : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
-        
 
-            if (Math.Sign(_Player._Velocity.x) > 0)
+
+        if (Math.Sign(_Player._Velocity.x) > 0)
         {
-            _Player._Renderer.flipX = false;
-            _Player._HitBoxPosition.x = Mathf.Abs(_Player._HitBoxPosition.x);
+            _Player._Renderer.flipX = false;          
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
-            _Player._Renderer.flipX = true;
-            _Player._HitBoxPosition.x = -Mathf.Abs(_Player._HitBoxPosition.x);
+            _Player._Renderer.flipX = true;           
         }
     }
 
     public void FixedUpdate()
     {
+        _Player.Mine();
+
         _Player._MaxVelocity = Vector2.Lerp(_Player._MaxVelocity, _Player._BaseStats._MaxVelocity, Time.fixedDeltaTime * 4);
 
         if (_Player._Velocity.x >= -_Player._MaxVelocity.x && _Player._Velocity.x <= _Player._MaxVelocity.x)
         {
-            _Player._Velocity.x += Math.Sign(InputManager.instance._LStickX) * _Player._AccelerationMultiplier * Time.fixedDeltaTime;
+            _Player._Velocity.x += Math.Sign(InputManager.instance.HorizontalDirection()) * _Player._AccelerationMultiplier * Time.fixedDeltaTime;
         }
         else if (_Player._Velocity.x < -_Player._MaxVelocity.x)
         {
@@ -340,7 +357,7 @@ public class Slide : IState
 
     public void Update()
     {
-        if (InputManager.instance._LStickX != 0)
+        if (InputManager.instance.HorizontalDirection() != 0)
         {
             _Player.SwitchState(new Walk(_Player));
         }
@@ -348,21 +365,21 @@ public class Slide : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
-        
+
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = false;
-            _Player._HitBoxPosition.x = Mathf.Abs(_Player._HitBoxPosition.x);
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
             _Player._Renderer.flipX = true;
-            _Player._HitBoxPosition.x = -Mathf.Abs(_Player._HitBoxPosition.x);
         }
     }
 
     public void FixedUpdate()
     {
+        _Player.Mine();
+
         if (!_Player._Grounded)
         {
             _Player.SwitchState(new Fall(_Player));
@@ -450,11 +467,11 @@ public class Jump : IState
 
     public void Update()
     {
-        if (InputManager.instance._LStickX != 0 && InputManager.instance._LTrigger > 0.9f || InputManager.instance._LStickY != 0 && InputManager.instance._LTrigger > 0.5f)
-        {
-            if (_Player._CanDodge)
-                _Player.SwitchState(new AirDodge(_Player));
-        }
+        //if (InputManager.instance.HorizontalDirection() != 0 && InputManager.instance._DashButtonDown|| InputManager.instance.VericalDirection() != 0 && InputManager.instance._DashButtonDown)
+        //{
+        //    if (_Player._CanDodge)
+        //        _Player.SwitchState(new AirDodge(_Player));
+        //}
     }
 
     public void FixedUpdate()
@@ -466,7 +483,7 @@ public class Jump : IState
 
         if (_Player._Velocity.x >= -_Player._MaxVelocity.x && _Player._Velocity.x <= _Player._MaxVelocity.x)
         {
-            _Player._Velocity.x += Math.Sign(InputManager.instance._LStickX) * _Player._AccelerationMultiplier * 0.5f * Time.fixedDeltaTime;
+            _Player._Velocity.x += Math.Sign(InputManager.instance.HorizontalDirection()) * _Player._AccelerationMultiplier * 0.5f * Time.fixedDeltaTime;
         }
     }
 
@@ -492,15 +509,17 @@ public class Fall : IState
 
     public void Update()
     {
-        if (InputManager.instance._LStickX != 0 && InputManager.instance._LTrigger > 0.9f || InputManager.instance._LStickY != 0 && InputManager.instance._LTrigger > 0.5f)
-        {
-            if (_Player._CanDodge)
-                _Player.SwitchState(new AirDodge(_Player));
-        }
+        //if (InputManager.instance.HorizontalDirection() != 0 && InputManager.instance._DashButtonDown || InputManager.instance.VericalDirection() != 0 && InputManager.instance._DashButtonDown)
+        //{
+        //    if (_Player._CanDodge)
+        //        _Player.SwitchState(new AirDodge(_Player));
+        //}
     }
 
     public void FixedUpdate()
     {
+        _Player.CorrectFalling();
+
         if (_Player._Grounded)
         {
             _Player._Velocity.y = 0;
@@ -510,7 +529,7 @@ public class Fall : IState
 
         if (_Player._Velocity.x >= -_Player._MaxVelocity.x && _Player._Velocity.x <= _Player._MaxVelocity.x)
         {
-            _Player._Velocity.x += Math.Sign(InputManager.instance._LStickX) * _Player._AccelerationMultiplier * 0.5f * Time.fixedDeltaTime;
+            _Player._Velocity.x += Math.Sign(InputManager.instance.HorizontalDirection()) * _Player._AccelerationMultiplier * 0.5f * Time.fixedDeltaTime;
         }
     }
 
@@ -520,45 +539,45 @@ public class Fall : IState
     }
 }
 
-public class AirDodge : IState
-{
-    PlayerBehavior _Player;
-    Vector2 _Direction;
+//public class AirDodge : IState
+//{
+//    PlayerBehavior _Player;
+//    Vector2 _Direction;
 
-    public AirDodge(PlayerBehavior player)
-    {
-        _Player = player;
-    }
+//    public AirDodge(PlayerBehavior player)
+//    {
+//        _Player = player;
+//    }
 
-    public void OnEnter()
-    {
-        _Player.SetAnimation(PlayerAnimationState.Dash);
-        _Player._CanDodge = false;
-        _Player._MaxVelocity = new Vector2(_Player._BaseStats._MaxVelocity.x * 3, _Player._BaseStats._MaxVelocity.y);
-        _Direction = new Vector2(InputManager.instance._LStickX, InputManager.instance._LStickY).normalized;
-        _Player._Velocity = _Direction * _Player._AirDodgeForce;
-    }
+//    public void OnEnter()
+//    {
+//        _Player.SetAnimation(PlayerAnimationState.Dash);
+//        _Player._CanDodge = false;
+//        _Player._MaxVelocity = new Vector2(_Player._BaseStats._MaxVelocity.x * 3, _Player._BaseStats._MaxVelocity.y);
+//        _Direction = new Vector2(InputManager.instance.HorizontalDirection(), InputManager.instance.VericalDirection()).normalized;
+//        _Player._Velocity = _Direction * _Player._AirDodgeForce;
+//    }
 
-    public void Update()
-    {
-      
-    }
+//    public void Update()
+//    {
 
-    public void FixedUpdate()
-    {
-        if (_Player._Grounded)
-        {
-            _Player._Velocity.y = 0;
-            _Player._FrictionMultiplier = _Player._BaseStats._FrictionMultiplier;
-            _Player.SwitchState(new Slide(_Player));
-        }
-    }
+//    }
 
-    public void OnExit()
-    {
+//    public void FixedUpdate()
+//    {
+//        if (_Player._Grounded)
+//        {
+//            _Player._Velocity.y = 0;
+//            _Player._FrictionMultiplier = _Player._BaseStats._FrictionMultiplier;
+//            _Player.SwitchState(new Slide(_Player));
+//        }
+//    }
 
-    }
-}
+//    public void OnExit()
+//    {
+
+//    }
+//}
 
 public class Land : IState
 {

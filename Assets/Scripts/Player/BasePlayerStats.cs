@@ -8,5 +8,6 @@ public class BasePlayerStats : ScriptableObject
     public float _AccelerationMultiplier, _FrictionMultiplier;
     public float _FallForceMultiplier;
     public float _JumpForce, _AirDodgeForce;
+    public float _MineRange;
     public Vector2 _Velocity, _PreVelocity, _MaxVelocity;
 }
