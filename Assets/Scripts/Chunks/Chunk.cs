@@ -47,7 +47,7 @@ public class Chunk : MonoBehaviour {
             {
                 if (caves[x, y] < 16)
                 {
-                    Vector3 position = transform.position + new Vector3(x, y) * 0.15f;
+                    Vector3 position = transform.position + new Vector3(x, y) * 1.5f;
                     BigBlock block = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
 
                     //LeftTop
