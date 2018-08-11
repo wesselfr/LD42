@@ -11,6 +11,9 @@ public class BigBlock : MonoBehaviour
     [SerializeField]
     private GenericBlockData m_Data;
 
+    [SerializeField]
+    private SpriteRenderer m_Renderer;
+
     public void Initialize(GenericBlockData data)
     {
         m_Data = data;
