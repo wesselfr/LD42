@@ -5,12 +5,15 @@ using UnityEngine;
 public class GridManager : MonoBehaviour {
 
     [SerializeField]
-    private Chunk[] m_Chunks;
+    private List<Chunk> m_Chunks;
     private int m_Last;
+
+    [SerializeField]
+    private Chunk m_Prefab;
 	// Use this for initialization
 	void FirstGeneration () {
         m_Last = 0;
-        m_Chunks[0].StartGeneration();
+        m_Chunks[0].StartGeneration(Vector2.zero);
 	}
 	
 	// Update is called once per frame
@@ -22,16 +25,22 @@ public class GridManager : MonoBehaviour {
         if (m_Chunks[m_Last].done)
         {
            
-            if (m_Last < m_Chunks.Length - 1)
+            if (m_Last < m_Chunks.Count -1)
             {
                 m_Last++;
-                m_Chunks[m_Last].StartGeneration();
+                m_Chunks[m_Last].StartGeneration(m_Chunks[m_Last].transform.position);
             }
         }
 	}
 
     public void CreateNewChunk()
     {
+
+    }
+
+    public void AddCunks(Chunk askChunk)
+    {
+        Chunk center = askChunk;
 
     }
 

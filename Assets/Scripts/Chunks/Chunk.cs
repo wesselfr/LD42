@@ -19,6 +19,12 @@ public class Chunk : MonoBehaviour {
     [SerializeField]
     private GameOfLife m_CaveGenerator;
 
+    private Vector2 m_PositionFromOrigin;
+    private Chunk m_TopChunk;
+    private Chunk m_BottomChunk;
+    private Chunk m_LeftChunk;
+    private Chunk m_RightChunk;
+
     private bool m_Done = false;
 	// Use this for initialization
 	void Start () {
@@ -33,8 +39,9 @@ public class Chunk : MonoBehaviour {
         }
 	}
 
-    public void StartGeneration()
+    public void StartGeneration(Vector2 distanceFromOrigin)
     {
+        m_PositionFromOrigin = distanceFromOrigin;
         StartCoroutine(GenerateChunk());
     }
 
@@ -228,4 +235,31 @@ public class Chunk : MonoBehaviour {
     }
 
     public bool done { get { return m_Done; } }
+
+    public Vector2 position { get { return m_PositionFromOrigin; } }
+
+    public Chunk topChunk { get { return m_TopChunk; } }
+    public Chunk bottomChunk { get { return m_BottomChunk; } }
+    public Chunk leftChunk { get { return m_LeftChunk; } }
+    public Chunk rightChunk { get { return m_RightChunk; } }
+
+    public void AddNeighbour(Vector2 direction, Chunk chunkToAdd)
+    {
+        if(direction == Vector2.up)
+        {
+            m_TopChunk = chunkToAdd;
+        }
+        if(direction == Vector2.down)
+        {
+            m_BottomChunk = chunkToAdd;
+        }
+        if(direction == Vector2.left)
+        {
+            m_LeftChunk = chunkToAdd;
+        }
+        if(direction == Vector2.right)
+        {
+            m_RightChunk = chunkToAdd;
+        }
+    }
 }

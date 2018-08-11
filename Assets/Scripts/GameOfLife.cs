@@ -100,10 +100,10 @@ public class GameOfLife : MonoBehaviour
 
         //Added Itterations
         m_ItterationsLeft = m_Itterations;
-
-        for(int i = 0; i < m_ItterationsLeft; i++)
+        StartCoroutine(UpdateGameOfLife());
+        for (int i = 0; i < m_ItterationsLeft; i++)
         {
-            UpdateGameOfLife();
+            //UpdateGameOfLife();
         }
 
         return m_Update;
@@ -149,17 +149,17 @@ public class GameOfLife : MonoBehaviour
         m_Draw = (byte[,])m_Update.Clone();
 
         //Added Itterations
-        m_ItterationsLeft = m_OreItterations;
+        m_ItterationsLeft = m_OreItterations + 1;
 
+        StartCoroutine(UpdateGameOfLifeOres());
         for (int i = 0; i < m_ItterationsLeft; i++)
         {
-            UpdateGameOfLifeOres();
 
             //for (int j = 0; j < m_MaxOres-m_CurrentOres; j++) {
             //    FillInGaps();
             //}
         }
-        UpdateGameOfLifeOres();
+        //UpdateGameOfLifeOres();
 
         return m_Update;
     }
@@ -254,7 +254,7 @@ public class GameOfLife : MonoBehaviour
     //    Draw();
     //}
 
-    void UpdateGameOfLife()
+    IEnumerator UpdateGameOfLife()
     {
         for (int x = 0; x < m_Widht; x++)
         {
@@ -340,12 +340,19 @@ public class GameOfLife : MonoBehaviour
                     int value = neighbourAmount;
                     m_Update[x, y] = (byte)value;
                 }
+
+                //yield return new WaitForEndOfFrame();
             }
         }
         m_Draw = (byte[,])m_Update.Clone();
+        if (m_ItterationsLeft > 0)
+        {
+            m_ItterationsLeft--;
+            yield return StartCoroutine(UpdateGameOfLife());
+        }
     }
 
-    void UpdateGameOfLifeOres()
+    IEnumerator UpdateGameOfLifeOres()
     {
         for (int x = 0; x < m_Widht; x++)
         {
@@ -460,9 +467,16 @@ public class GameOfLife : MonoBehaviour
                     m_Update[x, y] = (byte)value;
                 }
 
+                //yield return new WaitForEndOfFrame();
+
             }
         }
         m_Draw = (byte[,])m_Update.Clone();
+        if(m_ItterationsLeft > 0)
+        {
+            m_ItterationsLeft--;
+            yield return StartCoroutine(UpdateGameOfLifeOres());
+        }
     }
 
     void Draw()
