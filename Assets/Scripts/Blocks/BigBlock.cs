@@ -26,6 +26,14 @@ public class BigBlock : MonoBehaviour
         UpdateBlock();
     }
 
+    public void SetBlockState(int index, BlockState state)
+    {
+        if (state == BlockState.Mined)
+        {
+            m_SmallBlocks[index].MineBlock();
+        }
+    }
+
     public void UpdateBlock()
     {
         // 0,1
