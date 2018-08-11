@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Renderer: {fileID: 215750340}
-  m_BigBlock: {fileID: 0}
+  m_BigBlock: {fileID: 855220595}
 --- !u!212 &215750340
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Renderer: {fileID: 628591382}
-  m_BigBlock: {fileID: 0}
+  m_BigBlock: {fileID: 855220595}
 --- !u!212 &628591382
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 855220596}
   - component: {fileID: 855220595}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Renderer: {fileID: 628591382}
-  m_BigBlock: {fileID: 0}
+  m_BigBlock: {fileID: 855220595}
 --- !u!212 &1243123224
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Renderer: {fileID: 628591382}
-  m_BigBlock: {fileID: 0}
+  m_BigBlock: {fileID: 855220595}
 --- !u!212 &1943133181
 SpriteRenderer:
   m_ObjectHideFlags: 0
