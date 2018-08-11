@@ -114,8 +114,7 @@ public class GameOfLife : MonoBehaviour
         m_Update = new byte[m_Widht, m_Height];
         m_MaxOres = maxStart;
         int amount = 0;
-        while (amount < maxStart)
-        {
+        int trys = 0;
             for (int x = 0; x < m_Widht; x++)
             {
                 for (int y = 0; y < m_Height; y++)
@@ -142,7 +141,7 @@ public class GameOfLife : MonoBehaviour
                     y = Random.Range(0, m_Height);
                 }
             }
-        }
+        
         m_CurrentOres = amount;
 
         m_Old = (byte[,])m_Update.Clone();

@@ -31,7 +31,7 @@ public class CreateOreScript : Editor {
         SpriteImporter importer = target as SpriteImporter;
 
         Sprite[] sprites = importer.sheet;
-
+        EditorUtility.SetDirty(importer.data);
         importer.data.m_Normal = sprites[5];
         importer.data.m_LeftTopMissing = sprites[4];
         importer.data.m_RightTopMissing = sprites[6];
@@ -47,6 +47,8 @@ public class CreateOreScript : Editor {
         importer.data.m_OnlyRightTop = sprites[8];
         importer.data.m_OnlyLeftBottom = sprites[2];
         importer.data.m_OnlyRightBottom = sprites[0];
+
+       
 
 
 
