@@ -118,6 +118,8 @@ public class Chunk : MonoBehaviour {
                             block.SetBlockState(3, BlockState.Mined);
                         }
                     }
+
+                    block.UpdateBlock();
                 }
             }
         }
