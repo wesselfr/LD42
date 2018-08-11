@@ -91,6 +91,7 @@ public class GameOfLife : MonoBehaviour
                 {
                     m_Update[x, y] = 0;
                 }
+                
             }
         }
 
@@ -152,11 +153,11 @@ public class GameOfLife : MonoBehaviour
 
         for (int i = 0; i < m_ItterationsLeft; i++)
         {
-            StartCoroutine(UpdateGameOfLifeOres());
+            UpdateGameOfLifeOres();
 
-            for (int j = 0; j < m_MaxOres-m_CurrentOres; j++) {
-                FillInGaps();
-            }
+            //for (int j = 0; j < m_MaxOres-m_CurrentOres; j++) {
+            //    FillInGaps();
+            //}
         }
         UpdateGameOfLifeOres();
 
@@ -310,9 +311,6 @@ public class GameOfLife : MonoBehaviour
                 }
 
 
-
-
-
                 if (neighbourAmount == 2)
                 {
                     if (m_Old[x, y] >= 16)
@@ -342,14 +340,12 @@ public class GameOfLife : MonoBehaviour
                     int value = neighbourAmount;
                     m_Update[x, y] = (byte)value;
                 }
-
-
             }
         }
         m_Draw = (byte[,])m_Update.Clone();
     }
 
-    IEnumerator UpdateGameOfLifeOres()
+    void UpdateGameOfLifeOres()
     {
         for (int x = 0; x < m_Widht; x++)
         {
@@ -463,8 +459,6 @@ public class GameOfLife : MonoBehaviour
                     int value = neighbourAmount;
                     m_Update[x, y] = (byte)value;
                 }
-
-                yield return new WaitForEndOfFrame();
 
             }
         }

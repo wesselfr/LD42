@@ -43,6 +43,8 @@ public class Chunk : MonoBehaviour {
         Stack<GenericBlockData> blocks = m_Pool.GetObjectData();
 
         byte[,] caves = m_CaveGenerator.GenerateCave();
+        yield return new WaitForEndOfFrame();
+        //byte[,] dirt = m_CaveGenerator.GenerateCave();
 
         byte[,] diamons = m_CaveGenerator.GenerateOres(15);
         yield return new WaitForEndOfFrame();
@@ -68,6 +70,12 @@ public class Chunk : MonoBehaviour {
                 {
                     Vector3 position = transform.position + new Vector3(x, y) * 1.5f;
                     BigBlock block = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+
+                    //if (dirt[x, y]>16)
+                    //{
+                    //    block.Initialize(BlockServiceProvider.instance.GetBlock(1));
+                    //}
+
                     BigBlock ore = null;
 
                     //SpawnOre
@@ -208,8 +216,10 @@ public class Chunk : MonoBehaviour {
                     {
                         ore.UpdateBlock();
                         ore.transform.parent = this.transform;
+                        ore.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     }
 
+                    yield return new WaitForEndOfFrame();
                     
                 }
             }
