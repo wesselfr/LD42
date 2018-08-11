@@ -5,21 +5,25 @@ public class BigBlock : MonoBehaviour
 {
     [SerializeField]
     SmallBlock[] m_SmallBlocks;
+    // 0,1
+    // 2,3
 
-    // Use this for initialization
-    void Start()
+    [SerializeField]
+    private GenericBlockData m_Data;
+
+    public void Initialize(GenericBlockData data)
     {
-
+        m_Data = data;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     public void UpdateBlock()
     {
-
+        
     }
 }

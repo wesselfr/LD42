@@ -9,7 +9,6 @@ public class BlockServiceProvider : MonoBehaviour {
     [SerializeField]
     private GenericBlockData[] m_Blocks;
 
-
 	// Use this for initialization
 	void Start () {
         instance = this;
