@@ -20,12 +20,6 @@ public class BigBlock : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        UpdateBlock();
-    }
-
     public void SetBlockState(int index, BlockState state)
     {
         if (state == BlockState.Mined)
