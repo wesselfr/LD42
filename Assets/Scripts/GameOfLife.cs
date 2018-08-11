@@ -142,40 +142,40 @@ public class GameOfLife : MonoBehaviour
         m_Draw = (byte[,])m_Update.Clone();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            GenerateRandomGrid();
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            m_IsProccesing = !m_IsProccesing;
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            //GenerateGlider();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            m_Draw = GenerateCave();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            GenerateWinder();
-        }
+    //    //if (Input.GetKeyDown(KeyCode.R))
+    //    //{
+    //    //    GenerateRandomGrid();
+    //    //}
+    //    //if (Input.GetKeyDown(KeyCode.N))
+    //    //{
+    //    //    m_IsProccesing = !m_IsProccesing;
+    //    //}
+    //    //if (Input.GetKeyDown(KeyCode.G))
+    //    //{
+    //    //    //GenerateGlider();
+    //    //}
+    //    //if (Input.GetKeyDown(KeyCode.Space))
+    //    //{
+    //    //    m_Draw = GenerateCave();
+    //    //}
+    //    //if (Input.GetKeyDown(KeyCode.H))
+    //    //{
+    //    //    GenerateWinder();
+    //    //}
 
-        if (m_IsProccesing)
-        {
-            //GenerateRandomGrid();
-            UpdateGameOfLife();
-            m_ItterationsLeft--;
-            if(m_ItterationsLeft == 0) { m_IsProccesing = false; }
-        }
-        Draw();
-    }
+    //    if (m_IsProccesing)
+    //    {
+    //        //GenerateRandomGrid();
+    //        UpdateGameOfLife();
+    //        m_ItterationsLeft--;
+    //        if(m_ItterationsLeft == 0) { m_IsProccesing = false; }
+    //    }
+    //    Draw();
+    //}
 
     void UpdateGameOfLife()
     {
