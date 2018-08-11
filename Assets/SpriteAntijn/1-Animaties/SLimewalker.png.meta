@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,14 +94,14 @@ TextureImporter:
         y: 0
         width: 18
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5818070b9caba8f4bb181b41b22720db
+      spriteID: 28a45a12dcc4c784bad28c5f04aa38c9
       vertices: []
       indices: 
       edges: []
@@ -110,18 +110,18 @@ TextureImporter:
       name: SLimewalker_1
       rect:
         serializedVersion: 2
-        x: 18
+        x: 19
         y: 0
-        width: 18
+        width: 16
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 360387551f6a50844aa415fdf9ec99d0
+      spriteID: 4120c00f02d86c04f87b93aaefa5cc9e
       vertices: []
       indices: 
       edges: []
@@ -130,18 +130,18 @@ TextureImporter:
       name: SLimewalker_2
       rect:
         serializedVersion: 2
-        x: 37
+        x: 39
         y: 0
-        width: 20
+        width: 18
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 123ebb47cfac6e14ea8a4ffe438f151a
+      spriteID: 860a348268a897a4681b936a5c0e39e7
       vertices: []
       indices: 
       edges: []

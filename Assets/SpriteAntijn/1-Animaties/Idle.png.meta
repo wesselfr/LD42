@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -89,18 +89,18 @@ TextureImporter:
       name: Idle_0
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
         width: 14
         height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 547454a9e0883c042ac1bb992ee6ed05
+      spriteID: 7aca784dd7ea92f42a35723aaaa9506b
       vertices: []
       indices: 
       edges: []
@@ -109,18 +109,18 @@ TextureImporter:
       name: Idle_1
       rect:
         serializedVersion: 2
-        x: 0
+        x: 15
         y: 0
         width: 14
         height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 397ec666df43a29478b36b745fcdfc66
+      spriteID: 3d50db54d0b5804458a7f2da5fa8124f
       vertices: []
       indices: 
       edges: []

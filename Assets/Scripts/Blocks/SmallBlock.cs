@@ -4,7 +4,7 @@ using System.Collections;
 public enum BlockState
 {
     Normal,
-    Eaten
+    Mined
 }
 
 public class SmallBlock : MonoBehaviour
@@ -12,24 +12,15 @@ public class SmallBlock : MonoBehaviour
     [SerializeField]
     private BigBlock m_BigBlock;
 
+    [SerializeField]
     private BlockState m_State = BlockState.Normal;
 
-    // Use this for initialization
-    void Start()
+    public void MineBlock()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void EatBlock()
-    {
-        m_State = BlockState.Eaten;
+        m_State = BlockState.Mined;
         m_BigBlock.UpdateBlock();
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     public BlockState state { get { return m_State; } }

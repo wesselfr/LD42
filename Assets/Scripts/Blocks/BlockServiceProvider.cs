@@ -10,7 +10,7 @@ public class BlockServiceProvider : MonoBehaviour {
     private GenericBlockData[] m_Blocks;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         instance = this;
 	}
 
