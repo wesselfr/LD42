@@ -12,6 +12,7 @@ public class SmallBlock : MonoBehaviour
     [SerializeField]
     private BigBlock m_BigBlock;
 
+    [SerializeField]
     private BlockState m_State = BlockState.Normal;
 
     // Use this for initialization

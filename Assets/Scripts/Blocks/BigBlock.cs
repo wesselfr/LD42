@@ -23,7 +23,7 @@ public class BigBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        UpdateBlock();
     }
 
     public void UpdateBlock()

@@ -103,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1312141436370254}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.075, y: 0.075, z: 0}
+  m_LocalPosition: {x: 0.043, y: 0.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4936038848143434}
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675200835091390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.075, y: -0.075, z: 0}
+  m_LocalPosition: {x: 0.043, y: -0.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4936038848143434}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1580837839119560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.075, y: -0.075, z: 0}
+  m_LocalPosition: {x: -0.043, y: -0.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4936038848143434}
@@ -142,7 +142,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714630039605178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.075, y: 0.075, z: 0}
+  m_LocalPosition: {x: -0.043, y: 0.043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4936038848143434}
@@ -277,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BigBlock: {fileID: 114928506441049758}
+  m_State: 0
 --- !u!114 &114256928635418904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BigBlock: {fileID: 114928506441049758}
+  m_State: 0
 --- !u!114 &114542925342690060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BigBlock: {fileID: 114928506441049758}
+  m_State: 0
 --- !u!114 &114582629566546664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BigBlock: {fileID: 114928506441049758}
+  m_State: 0
 --- !u!114 &114928506441049758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -329,7 +333,7 @@ MonoBehaviour:
   - {fileID: 114256928635418904}
   - {fileID: 114582629566546664}
   - {fileID: 114542925342690060}
-  m_Data: {fileID: 11400000, guid: e36fd0a7cc4c6b14eb6320eba6b7cf7c, type: 2}
+  m_Data: {fileID: 11400000, guid: 6dafea4a3d8eec943a678d3b68ed961a, type: 2}
   m_Renderer: {fileID: 212511509519045844}
 --- !u!212 &212511509519045844
 SpriteRenderer:
