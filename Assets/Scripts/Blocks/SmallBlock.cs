@@ -4,7 +4,7 @@ using System.Collections;
 public enum BlockState
 {
     Normal,
-    Eaten
+    Mined
 }
 
 public class SmallBlock : MonoBehaviour
@@ -26,9 +26,9 @@ public class SmallBlock : MonoBehaviour
 
     }
 
-    public void EatBlock()
+    public void MineBlock()
     {
-        m_State = BlockState.Eaten;
+        m_State = BlockState.Mined;
         m_BigBlock.UpdateBlock();
     }
 
