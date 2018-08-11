@@ -21,7 +21,9 @@ public enum PlayerAnimationState
     Fall,
     Dash,
     Land,
+    Mine,
     Eat
+
 }
 
 public class PlayerBehavior : MonoBehaviour
@@ -213,17 +215,13 @@ public class Idle : IState
     public Idle(PlayerBehavior player)
     {
         _Player = player;
-        _GameManager = GameManager.Instance;
     }
 
     public void OnEnter()
     {
         _Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Idle);
-
-        var normTime = _GameManager._CurrentTime % 2;
-
-        _Player._Animator.Play("Nibba_Idle", 0, normTime);
+        _Player._Animator.Play("Nibba_Idle");
     }
 
     public void Update()
@@ -236,11 +234,17 @@ public class Idle : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
+       
     }
 
     public void FixedUpdate()
     {
         _Player._MaxVelocity = Vector2.Lerp(_Player._MaxVelocity, _Player._BaseStats._MaxVelocity, Time.fixedDeltaTime * 4);
+
+        if (!_Player._Grounded)
+        {
+            _Player.SwitchState(new Fall(_Player));
+        }
     }
 
     public void OnExit()
@@ -257,17 +261,13 @@ public class Walk : IState
     public Walk(PlayerBehavior player)
     {
         _Player = player;
-        _GameManager = GameManager.Instance;
     }
 
     public void OnEnter()
     {
         _Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Walk);
-
-        var normTime = _GameManager._CurrentTime % 2;
-
-        _Player._Animator.Play("Nibba_Run", 0, normTime);
+        _Player._Animator.Play("Nibba_Run");
     }
 
     public void Update()
@@ -280,8 +280,9 @@ public class Walk : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
+        
 
-        if (Math.Sign(_Player._Velocity.x) > 0)
+            if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = false;
             _Player._HitBoxPosition.x = Mathf.Abs(_Player._HitBoxPosition.x);
@@ -308,6 +309,11 @@ public class Walk : IState
         else if (_Player._Velocity.x > _Player._MaxVelocity.x)
         {
             _Player._Velocity.x = _Player._MaxVelocity.x;
+        }
+
+        if (!_Player._Grounded)
+        {
+            _Player.SwitchState(new Fall(_Player));
         }
     }
 
@@ -342,8 +348,7 @@ public class Slide : IState
         {
             _Player.SwitchState(new Squad(_Player));
         }
-
-
+        
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = false;
@@ -358,6 +363,10 @@ public class Slide : IState
 
     public void FixedUpdate()
     {
+        if (!_Player._Grounded)
+        {
+            _Player.SwitchState(new Fall(_Player));
+        }
         if (_Player._Velocity.x == 0)
         {
             _Player.SwitchState(new Idle(_Player));
