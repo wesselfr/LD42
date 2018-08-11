@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: 14aa89779bc957a47ac3180237834a3e
+timeCreated: 1524346828
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SlideSheet_0
+    21300002: SlideSheet_1
+    21300004: SlideSheet_2
+    21300006: SlideSheet_3
+    21300008: SlideSheet_4
+    21300010: SlideSheet_5
+    21300012: SlideSheet_6
+    21300014: SlideSheet_7
+    21300016: SlideSheet_8
+    21300018: SlideSheet_9
+    21300020: SlideSheet_10
+    21300022: SlideSheet_11
+    21300024: SlideSheet_12
+    21300026: SlideSheet_13
+    21300028: SlideSheet_14
+    21300030: SlideSheet_15
+    21300032: SlideSheet_16
+    21300034: SlideSheet_17
+    21300036: SlideSheet_18
+    21300038: SlideSheet_19
+    21300040: SlideSheet_20
+    21300042: SlideSheet_21
+    21300044: SlideSheet_22
+    21300046: SlideSheet_23
+    21300048: SlideSheet_24
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SlideSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_1
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_3
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_4
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_5
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_6
+      rect:
+        serializedVersion: 2
+        x: 4968
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_7
+      rect:
+        serializedVersion: 2
+        x: 5796
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_8
+      rect:
+        serializedVersion: 2
+        x: 6624
+        y: 2374
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_10
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_11
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_12
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_13
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_14
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_15
+      rect:
+        serializedVersion: 2
+        x: 4968
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_16
+      rect:
+        serializedVersion: 2
+        x: 5796
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_17
+      rect:
+        serializedVersion: 2
+        x: 6624
+        y: 1187
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_19
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_20
+      rect:
+        serializedVersion: 2
+        x: 1656
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_21
+      rect:
+        serializedVersion: 2
+        x: 2484
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_22
+      rect:
+        serializedVersion: 2
+        x: 3312
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_23
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SlideSheet_24
+      rect:
+        serializedVersion: 2
+        x: 4968
+        y: 0
+        width: 828
+        height: 1187
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

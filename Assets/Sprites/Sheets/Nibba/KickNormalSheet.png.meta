@@ -1,0 +1,597 @@
+fileFormatVersion: 2
+guid: 3d6160ab516f3484fa536a7a8d12e5a8
+timeCreated: 1524408211
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: KickNormalSheet_0
+    21300002: KickNormalSheet_1
+    21300004: KickNormalSheet_2
+    21300006: KickNormalSheet_3
+    21300008: KickNormalSheet_4
+    21300010: KickNormalSheet_5
+    21300012: KickNormalSheet_6
+    21300014: KickNormalSheet_7
+    21300016: KickNormalSheet_8
+    21300018: KickNormalSheet_9
+    21300020: KickNormalSheet_10
+    21300022: KickNormalSheet_11
+    21300024: KickNormalSheet_12
+    21300026: KickNormalSheet_13
+    21300028: KickNormalSheet_14
+    21300030: KickNormalSheet_15
+    21300032: KickNormalSheet_16
+    21300034: KickNormalSheet_17
+    21300036: KickNormalSheet_18
+    21300038: KickNormalSheet_19
+    21300040: KickNormalSheet_20
+    21300042: KickNormalSheet_21
+    21300044: KickNormalSheet_22
+    21300046: KickNormalSheet_23
+    21300048: KickNormalSheet_24
+    21300050: KickNormalSheet_25
+    21300052: KickNormalSheet_26
+    21300054: KickNormalSheet_27
+    21300056: KickNormalSheet_28
+    21300058: KickNormalSheet_29
+    21300060: KickNormalSheet_30
+    21300062: KickNormalSheet_31
+    21300064: KickNormalSheet_32
+    21300066: KickNormalSheet_33
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 300
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: KickNormalSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_1
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_2
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_3
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_4
+      rect:
+        serializedVersion: 2
+        x: 4540
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_5
+      rect:
+        serializedVersion: 2
+        x: 5675
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_6
+      rect:
+        serializedVersion: 2
+        x: 6810
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_7
+      rect:
+        serializedVersion: 2
+        x: 7945
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_8
+      rect:
+        serializedVersion: 2
+        x: 9080
+        y: 3666
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_10
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_11
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_12
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_13
+      rect:
+        serializedVersion: 2
+        x: 4540
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_14
+      rect:
+        serializedVersion: 2
+        x: 5675
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_15
+      rect:
+        serializedVersion: 2
+        x: 6810
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_16
+      rect:
+        serializedVersion: 2
+        x: 7945
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_17
+      rect:
+        serializedVersion: 2
+        x: 9080
+        y: 2444
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_20
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_21
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_22
+      rect:
+        serializedVersion: 2
+        x: 4540
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_23
+      rect:
+        serializedVersion: 2
+        x: 5675
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_24
+      rect:
+        serializedVersion: 2
+        x: 6810
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_25
+      rect:
+        serializedVersion: 2
+        x: 7945
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_26
+      rect:
+        serializedVersion: 2
+        x: 9080
+        y: 1222
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_28
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_29
+      rect:
+        serializedVersion: 2
+        x: 2270
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_30
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_31
+      rect:
+        serializedVersion: 2
+        x: 4540
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_32
+      rect:
+        serializedVersion: 2
+        x: 5675
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: KickNormalSheet_33
+      rect:
+        serializedVersion: 2
+        x: 6810
+        y: 0
+        width: 1135
+        height: 1222
+      alignment: 9
+      pivot: {x: 0.46, y: 0.04}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
