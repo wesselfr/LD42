@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 50871746097037498}
   - component: {fileID: 114114271504814884}
   - component: {fileID: 61968910921527532}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Player 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4211556290197288}
   - component: {fileID: 95241963183311896}
   - component: {fileID: 212887519783889770}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1225211150417604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.005689, y: -14.744476, z: -45.51367}
+  m_LocalPosition: {x: 31.8058, y: 91.57778, z: -19.785156}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4416081483406950}
@@ -316,7 +316,7 @@ Animator:
   m_GameObject: {fileID: 1315835981356284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f6fa31bf5e6e4ca4aa9f4bc9571a65be, type: 2}
+  m_Controller: {fileID: 9100000, guid: fff22967d46b9d54b8b4c80dd4bcfd29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -359,7 +359,7 @@ MonoBehaviour:
   _Renderer: {fileID: 212887519783889770}
   _RigidBody: {fileID: 50871746097037498}
   _Collider: {fileID: 61968910921527532}
-  _Sprite: {fileID: 4249459394776524}
+  _Sprite: {fileID: 4211556290197288}
   _PickAxeTransform: {fileID: 4249459394776524}
   _PickAxeScript: {fileID: 114294330850616950}
   _AxeAnim: {fileID: 95083950966434280}
@@ -377,7 +377,7 @@ MonoBehaviour:
   _MaxVelocity: {x: 10, y: 30}
   _StandableMasks:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 512
   _Grounded: 1
 --- !u!114 &114294330850616950
 MonoBehaviour:

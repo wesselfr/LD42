@@ -1,6 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public struct BigBlockData
+{
+    SmallBlock[] m_SmallBlocks;
+    private GenericBlockData m_Data;
+    private Vector3 m_Position;
+    public BigBlockData(SmallBlock[] smallBlocks, GenericBlockData data, Vector3 position)
+    {
+        m_SmallBlocks = smallBlocks;
+        m_Data = data;
+        m_Position = position;
+    }
+
+    public SmallBlock[] smallBlocks { get { return m_SmallBlocks; } set { m_SmallBlocks = value; } }
+    public GenericBlockData data { get { return m_Data; } }
+    public Vector3 position { get { return m_Position; } }
+}
+
 public class BigBlock : MonoBehaviour
 {
     [SerializeField]
@@ -26,6 +43,18 @@ public class BigBlock : MonoBehaviour
         {
             m_SmallBlocks[index].MineBlock();
         }
+    }
+
+    public void EnableBlock(BigBlockData data)
+    {
+        m_SmallBlocks = data.smallBlocks;
+        m_Data = data.data;
+        transform.position = data.position;
+    }
+
+    public BigBlockData DisableBlock()
+    {
+        return new BigBlockData(m_SmallBlocks, m_Data, transform.position);
     }
 
     public void UpdateBlock()

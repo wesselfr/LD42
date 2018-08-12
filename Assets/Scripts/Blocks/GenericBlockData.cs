@@ -37,35 +37,35 @@ public class GenericBlockData : ScriptableObject {
 
     [Header("Art")]
     [SerializeField]
-    private Sprite m_Normal;
+    public Sprite m_Normal;
     [SerializeField]
-    private Sprite m_LeftTopMissing;
+    public Sprite m_LeftTopMissing;
     [SerializeField]
-    private Sprite m_RightTopMissing;
+    public Sprite m_RightTopMissing;
     [SerializeField]
-    private Sprite m_LeftBottomMissing;
+    public Sprite m_LeftBottomMissing;
     [SerializeField]
-    private Sprite m_RightBottomMissing;
+    public Sprite m_RightBottomMissing;
     [SerializeField]
-    private Sprite m_OnlyBottom;
+    public Sprite m_OnlyBottom;
     [SerializeField]
-    private Sprite m_OnlyTop;
+    public Sprite m_OnlyTop;
     [SerializeField]
-    private Sprite m_OnlyRight;
+    public Sprite m_OnlyRight;
     [SerializeField]
-    private Sprite m_OnlyLeft;
+    public Sprite m_OnlyLeft;
     [SerializeField]
-    private Sprite m_DiagonalLeftBottomRightTop;
+    public Sprite m_DiagonalLeftBottomRightTop;
     [SerializeField]
-    private Sprite m_DiagonalRightBottomLeftTop;
+    public Sprite m_DiagonalRightBottomLeftTop;
     [SerializeField]
-    private Sprite m_OnlyLeftTop;
+    public Sprite m_OnlyLeftTop;
     [SerializeField]
-    private Sprite m_OnlyRightTop;
+    public Sprite m_OnlyRightTop;
     [SerializeField]
-    private Sprite m_OnlyLeftBottom;
+    public Sprite m_OnlyLeftBottom;
     [SerializeField]
-    private Sprite m_OnlyRightBottom;
+    public Sprite m_OnlyRightBottom;
 
 
     #region Accesors
@@ -115,3 +115,4 @@ public class GenericBlockData : ScriptableObject {
         }
     }
 }
+
