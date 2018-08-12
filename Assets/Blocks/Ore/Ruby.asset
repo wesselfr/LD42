@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Ruby
   m_ID: 5
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1554452499952228, guid: 66eeae185447b874ab8242ac01f8868d,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: 64474277d442e1c4bb8eb694945c5774, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: 64474277d442e1c4bb8eb694945c5774, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: 64474277d442e1c4bb8eb694945c5774, type: 3}

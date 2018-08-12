@@ -21,10 +21,6 @@ public class BlockServiceProvider : MonoBehaviour {
 	void Awake () {
         instance = this;
         m_BlockPool = new Stack<BigBlock>();
-        for(int i = 0; i < 10000; i++)
-        {
-            m_BlockPool.Push(Instantiate(m_BlockGenerator));
-        }
 	}
 
     public GenericBlockData GetBlock(int id)

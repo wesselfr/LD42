@@ -21,6 +21,12 @@ public class SmallBlock : MonoBehaviour
         m_BigBlock.UpdateBlock();
         GetComponent<BoxCollider2D>().enabled = false;
         //GetComponent<CircleCollider2D>().enabled = false;
+        GameObject itemToDrop = m_BigBlock.GetDroppableItem();
+    }
+
+    public void SpawnDroppedItem()
+    {
+        Instantiate(m_BigBlock.GetDroppableItem(), transform.position, Quaternion.identity);
     }
 
     public BlockState state { get { return m_State; } }

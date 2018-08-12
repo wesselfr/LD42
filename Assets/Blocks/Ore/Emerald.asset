@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Emerald
   m_ID: 2
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1593655711261676, guid: cc31de9110875f24f958fcb2afee064c,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: cfb4a7de6b5c91745ad17a8863907cf0, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: cfb4a7de6b5c91745ad17a8863907cf0, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: cfb4a7de6b5c91745ad17a8863907cf0, type: 3}
