@@ -165,9 +165,9 @@ public class PlayerBehavior : MonoBehaviour
         {
             Vector2 pos = (new Vector2(_Collider.bounds.center.x, _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
             pos.y -= _Collider.bounds.size.y * 0.5f;
-            Debug.DrawRay(pos, -transform.up * 0.2f, Color.red);
+            Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
 
-            if (Physics2D.Raycast(pos, -transform.up, 0.2f, _StandableMasks))
+            if (Physics2D.Raycast(pos, -transform.up, 0.1f, _StandableMasks))
             {
                 _Grounded = true;
                 break;
@@ -182,30 +182,82 @@ public class PlayerBehavior : MonoBehaviour
     public void SideCheck()
     {
         int rays = 4;
+        //bool firstLeft = false;
+        //bool lastLeft = false;
+        //bool firstRight = false;
+        //bool lastRight = false;
 
         for (int i = 0; i < rays; i++)
         {
             //left
+           
             Vector2 leftPos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
-
             Debug.DrawRay(leftPos, -transform.right * 0.2f, Color.red);
-
-            if (Physics2D.Raycast(leftPos, -transform.right, 0.2f, _StandableMasks) && _Velocity.x < 0)
+            RaycastHit2D leftHit = Physics2D.Raycast(leftPos, -transform.right, 0.2f, _StandableMasks);
+            if (leftHit)
             {
-                _Velocity.x = 0;
+                //if (i == 0)
+                //{
+                //    firstLeft = true;
+                //}
+                //if (i == rays -1)
+                //{
+                //    lastLeft = true;
+                //}
+
+                if (_Velocity.x < 0)
+                {
+                    _Velocity.x = 0;
+                }
             }
 
             //right
+ 
             Vector2 rightPos = new Vector2(_Collider.bounds.max.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
-
             Debug.DrawRay(rightPos, transform.right * 0.2f, Color.red);
-
-            if (Physics2D.Raycast(rightPos, transform.right, 0.2f, _StandableMasks) && _Velocity.x > 0)
+            RaycastHit2D rightHit = Physics2D.Raycast(rightPos, transform.right, 0.2f, _StandableMasks);
+            if (rightHit)
             {
-                _Velocity.x = 0;
-            }
 
+                //if (i == 0)
+                //{
+                //    firstRight = true;
+                //}
+                //if (i == rays -1)
+                //{
+                //    lastRight = true;
+                //}
+
+                if (_Velocity.x > 0)
+                {
+                    _Velocity.x = 0;
+                }
+            }
         }
+
+        //if (firstLeft == true && lastLeft == false)
+        //{
+        //    if (InputManager.instance.HorizontalDirection() == -1)
+        //    {
+        //        _Velocity.y = 10;
+        //    }
+        //}
+        //else
+        //{
+
+        //}
+
+        //if (firstRight == true && lastRight == false)
+        //{
+        //    if (InputManager.instance.HorizontalDirection() == 1)
+        //    {
+        //        _Velocity.y = 10;
+        //    }
+        //}
+        //else
+        //{
+
+        //}
     }
 
     public void SealingCheck()
@@ -331,7 +383,6 @@ public class Walk : IState
     {
         _Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Walk);
-        _Player._Animator.Play("Nibba_Run");
     }
 
     public void Update()
