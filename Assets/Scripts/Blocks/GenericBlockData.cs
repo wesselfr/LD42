@@ -18,7 +18,8 @@ public enum BlockStates
     OnlyLeftTop,
     OnlyRightTop,
     OnlyLeftBottom,
-    OnlyRightBottom
+    OnlyRightBottom,
+    Mined
 }
 
 [CreateAssetMenu(fileName = "New Block", menuName = "Block/Create")]
@@ -36,35 +37,35 @@ public class GenericBlockData : ScriptableObject {
 
     [Header("Art")]
     [SerializeField]
-    private Sprite m_Normal;
+    public Sprite m_Normal;
     [SerializeField]
-    private Sprite m_LeftTopMissing;
+    public Sprite m_LeftTopMissing;
     [SerializeField]
-    private Sprite m_RightTopMissing;
+    public Sprite m_RightTopMissing;
     [SerializeField]
-    private Sprite m_LeftBottomMissing;
+    public Sprite m_LeftBottomMissing;
     [SerializeField]
-    private Sprite m_RightBottomMissing;
+    public Sprite m_RightBottomMissing;
     [SerializeField]
-    private Sprite m_OnlyBottom;
+    public Sprite m_OnlyBottom;
     [SerializeField]
-    private Sprite m_OnlyTop;
+    public Sprite m_OnlyTop;
     [SerializeField]
-    private Sprite m_OnlyRight;
+    public Sprite m_OnlyRight;
     [SerializeField]
-    private Sprite m_OnlyLeft;
+    public Sprite m_OnlyLeft;
     [SerializeField]
-    private Sprite m_DiagonalLeftBottomRightTop;
+    public Sprite m_DiagonalLeftBottomRightTop;
     [SerializeField]
-    private Sprite m_DiagonalRightBottomLeftTop;
+    public Sprite m_DiagonalRightBottomLeftTop;
     [SerializeField]
-    private Sprite m_OnlyLeftTop;
+    public Sprite m_OnlyLeftTop;
     [SerializeField]
-    private Sprite m_OnlyRightTop;
+    public Sprite m_OnlyRightTop;
     [SerializeField]
-    private Sprite m_OnlyLeftBottom;
+    public Sprite m_OnlyLeftBottom;
     [SerializeField]
-    private Sprite m_OnlyRightBottom;
+    public Sprite m_OnlyRightBottom;
 
 
     #region Accesors
@@ -82,8 +83,36 @@ public class GenericBlockData : ScriptableObject {
                 
             case BlockStates.Normal:
                 return m_Normal;
-                break;
+            case BlockStates.LeftTopMissing:
+                return m_LeftTopMissing;
+            case BlockStates.RightTopMissing:
+                return m_RightTopMissing;
+            case BlockStates.LeftBottomMissing:
+                return m_LeftBottomMissing;
+            case BlockStates.RightBottomMissing:
+                return m_RightBottomMissing;
+            case BlockStates.OnlyBottom:
+                return m_OnlyBottom;
+            case BlockStates.OnlyTop:
+                return m_OnlyTop;
+            case BlockStates.OnlyLeft:
+                return m_OnlyLeft;
+            case BlockStates.OnlyRight:
+                return m_OnlyRight;
+            case BlockStates.DiagonalLeftBottomRightTop:
+                return m_DiagonalLeftBottomRightTop;
+            case BlockStates.DiagonalRightBottomLeftTop:
+                return m_DiagonalRightBottomLeftTop;
+            case BlockStates.OnlyLeftTop:
+                return m_OnlyLeftTop;
+            case BlockStates.OnlyRightTop:
+                return m_OnlyRightTop;
+            case BlockStates.OnlyLeftBottom:
+                return m_OnlyLeftBottom;
+            case BlockStates.OnlyRightBottom:
+                return m_OnlyRightBottom;
 
         }
     }
 }
+

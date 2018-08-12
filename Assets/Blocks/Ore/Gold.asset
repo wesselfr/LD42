@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83e5d81ee8435e4792b600dbeaa2ff1, type: 3}
+  m_Name: Gold
+  m_EditorClassIdentifier: 
+  m_BlockName: Gold
+  m_ID: 3
+  m_HealthPoints: 0
+  m_Normal: {fileID: 21300010, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_LeftTopMissing: {fileID: 21300008, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_RightTopMissing: {fileID: 21300012, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_LeftBottomMissing: {fileID: 21300018, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3,
+    type: 3}
+  m_RightBottomMissing: {fileID: 21300022, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3,
+    type: 3}
+  m_OnlyBottom: {fileID: 21300002, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyTop: {fileID: 21300028, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyRight: {fileID: 21300006, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyLeft: {fileID: 21300014, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_DiagonalLeftBottomRightTop: {fileID: 21300026, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3,
+    type: 3}
+  m_DiagonalRightBottomLeftTop: {fileID: 21300030, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3,
+    type: 3}
+  m_OnlyLeftTop: {fileID: 21300024, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyRightTop: {fileID: 21300016, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyLeftBottom: {fileID: 21300004, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
+  m_OnlyRightBottom: {fileID: 21300000, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
