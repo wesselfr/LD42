@@ -57,6 +57,8 @@ public class Chunk : MonoBehaviour {
 
     public IEnumerator GenerateGroundLevel()
     {
+        GenericBlockData dirt = BlockServiceProvider.instance.GetBlock(2);
+        GenericBlockData grass = BlockServiceProvider.instance.GetBlock(4);
         for (int x = 0; x < m_Size; x++)
         {
             for (int y = 0; y < m_Size; y++)
@@ -65,9 +67,18 @@ public class Chunk : MonoBehaviour {
                 {
                     Vector3 position = transform.position + new Vector3(x, y) * 1.5f;
                     BigBlock block = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
-                    if (y > 7)
+                    if (y > 5)
                     {
-                        block.Initialize(BlockServiceProvider.instance.GetBlock(2));
+                        if (y < 9)
+                        {
+                            //Dirt
+                            block.Initialize(dirt);
+                        }
+                        else
+                        {
+                            //Grass
+                            block.Initialize(grass);
+                        }
                     }
                     block.UpdateBlock();
                     block.transform.parent = this.transform;

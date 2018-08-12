@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fd31697e9ff794a9a1e856bb12d90f, type: 3}
+  m_Name: Grass
+  m_EditorClassIdentifier: 
+  m_BlockName: Grass
+  m_ID: 4
+  m_HealthPoints: 0
+  m_Normal: {fileID: 21300006, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_LeftTopMissing: {fileID: 21300000, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_RightTopMissing: {fileID: 21300004, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_LeftBottomMissing: {fileID: 0}
+  m_RightBottomMissing: {fileID: 0}
+  m_OnlyBottom: {fileID: 21300002, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyTop: {fileID: 0}
+  m_OnlyRight: {fileID: 0}
+  m_OnlyLeft: {fileID: 0}
+  m_DiagonalLeftBottomRightTop: {fileID: 0}
+  m_DiagonalRightBottomLeftTop: {fileID: 0}
+  m_OnlyLeftTop: {fileID: 0}
+  m_OnlyRightTop: {fileID: 0}
+  m_OnlyLeftBottom: {fileID: 0}
+  m_OnlyRightBottom: {fileID: 0}
