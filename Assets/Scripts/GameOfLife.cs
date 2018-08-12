@@ -28,6 +28,8 @@ public class GameOfLife : MonoBehaviour
     private int m_CurrentOres;
     private int m_MaxOres;
 
+    private bool m_Done = false;
+
     [SerializeField]
     Texture2D m_Texture;
 
@@ -74,9 +76,9 @@ public class GameOfLife : MonoBehaviour
         m_ItterationsLeft = m_Itterations;
     }
 
-    public byte[,] GenerateCave()
+    public IEnumerator CaveCourotine()
     {
-        m_Update = new byte[m_Widht, m_Height];
+        m_Done = false;
         for (int x = 0; x < m_Widht; x++)
         {
             for (int y = 0; y < m_Height; y++)
@@ -91,7 +93,6 @@ public class GameOfLife : MonoBehaviour
                 {
                     m_Update[x, y] = 0;
                 }
-                
             }
         }
 
@@ -100,48 +101,59 @@ public class GameOfLife : MonoBehaviour
 
         //Added Itterations
         m_ItterationsLeft = m_Itterations;
-        StartCoroutine(UpdateGameOfLife());
+        yield return StartCoroutine(UpdateGameOfLife());
         for (int i = 0; i < m_ItterationsLeft; i++)
         {
             //UpdateGameOfLife();
         }
+        m_Done = true;
+    }
+
+    public void ResetGeneration()
+    {
+        m_Update = new byte[m_Widht, m_Height];
+    }
+
+    public byte[,] GenerateCave()
+    {
+        m_Update = new byte[m_Widht, m_Height];
+        StartCoroutine(CaveCourotine());
 
         return m_Update;
     }
 
-    public byte[,] GenerateOres(int maxStart)
+    public IEnumerator OresCourotine()
     {
-        m_Update = new byte[m_Widht, m_Height];
-        m_MaxOres = maxStart;
+        m_Done = false;
         int amount = 0;
         int trys = 0;
-            for (int x = 0; x < m_Widht; x++)
+        for (int x = 0; x < m_Widht; x++)
+        {
+            for (int y = 0; y < m_Height; y++)
             {
-                for (int y = 0; y < m_Height; y++)
-                {
 
-                    if (m_Update[x,y] == 0)
+                if (m_Update[x, y] == 0)
+                {
+                    float state = Random.Range(-40, 10);
+                    state = Mathf.Sign(state);
+                    if (state == 1)
                     {
-                        float state = Random.Range(-40, 10);
-                        state = Mathf.Sign(state);
-                        if (state == 1)
+                        if (amount < m_MaxOres)
                         {
-                            if (amount < maxStart)
-                            {
-                                m_Update[x, y] = 17;
-                                amount++;
-                            }
-                        }
-                        if (state == -1)
-                        {
-                            m_Update[x, y] = 1;
+                            m_Update[x, y] = 17;
+                            amount++;
                         }
                     }
-                    x = Random.Range(0, m_Widht);
-                    y = Random.Range(0, m_Height);
+                    if (state == -1)
+                    {
+                        m_Update[x, y] = 1;
+                    }
                 }
+                x = Random.Range(0, m_Widht);
+                y = Random.Range(0, m_Height);
             }
-        
+        }
+
         m_CurrentOres = amount;
 
         m_Old = (byte[,])m_Update.Clone();
@@ -150,30 +162,57 @@ public class GameOfLife : MonoBehaviour
         //Added Itterations
         m_ItterationsLeft = m_OreItterations + 1;
 
-        StartCoroutine(UpdateGameOfLifeOres());
+        yield return StartCoroutine(UpdateGameOfLifeOres());
         for (int i = 0; i < m_ItterationsLeft; i++)
         {
 
             //for (int j = 0; j < m_MaxOres-m_CurrentOres; j++) {
-            //    FillInGaps();
+            
             //}
         }
         //UpdateGameOfLifeOres();
+        m_Done = true;
+    }
+
+    public void SetMaxOres(int maxStart)
+    {
+        m_Update = new byte[m_Widht, m_Height];
+        m_MaxOres = maxStart;
+    }
+
+    public byte[,] ReturnData()
+    {
+        return m_Update;
+    }
+
+    public bool done { get { return m_Done; } }
+
+    public byte[,] GenerateOres(int maxStart)
+    {
+        m_Update = new byte[m_Widht, m_Height];
+        m_MaxOres = maxStart;
+
+        StartCoroutine(OresCourotine());
 
         return m_Update;
     }
 
-    public void FillInGaps()
+    public IEnumerator FillInGaps()
     {
-        int x = Random.Range(0, m_Widht);
-        int y = Random.Range(0, m_Height);
-
-        if(m_Update[x,y] > 16) { FillInGaps(); }
-        else
+        int oreAmount = Random.Range(0, m_MaxOres - m_CurrentOres);
+        for(int i = 0; i < oreAmount; i++)
         {
-            m_Update[x, y] += 16;
-            m_CurrentOres++;
+            int x = Random.Range(0, m_Widht);
+            int y = Random.Range(0, m_Height);
+
+            if (m_Update[x, y] < 16)
+            {
+                m_Update[x, y] += 16;
+                m_CurrentOres++;
+            }
         }
+        yield return new WaitForEndOfFrame();
+        
     }
 
     void GenerateGlider()
@@ -305,7 +344,7 @@ public class GameOfLife : MonoBehaviour
                         {
                             neighbourAmount++;
                         }
-                        Draw();
+                        m_Old = (byte[,])m_Draw.Clone();
                     }
                 }
 
@@ -403,7 +442,7 @@ public class GameOfLife : MonoBehaviour
                         {
                             neighbourAmount++;
                         }
-                        Draw();
+                        m_Old = (byte[,])m_Draw.Clone();
                     }
                 }
 
@@ -466,14 +505,13 @@ public class GameOfLife : MonoBehaviour
                     m_Update[x, y] = (byte)value;
                 }
 
-                //yield return new WaitForEndOfFrame();
-
             }
         }
         m_Draw = (byte[,])m_Update.Clone();
         if(m_ItterationsLeft > 0)
         {
             m_ItterationsLeft--;
+            yield return StartCoroutine(FillInGaps());
             yield return StartCoroutine(UpdateGameOfLifeOres());
         }
     }

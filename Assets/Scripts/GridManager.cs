@@ -10,8 +10,14 @@ public class GridManager : MonoBehaviour {
 
     [SerializeField]
     private Chunk m_Prefab;
-	// Use this for initialization
-	void FirstGeneration () {
+
+    private void Start()
+    {
+        FirstGeneration();
+    }
+
+    // Use this for initialization
+    void FirstGeneration () {
         m_Last = 0;
         m_Chunks[0].StartGeneration(Vector2.zero);
 	}

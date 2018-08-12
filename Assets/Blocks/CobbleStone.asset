@@ -11,21 +11,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80fd31697e9ff794a9a1e856bb12d90f, type: 3}
   m_Name: CobbleStone
   m_EditorClassIdentifier: 
-  m_BlockName: 
-  m_ID: 0
+  m_BlockName: Cobblestone
+  m_ID: 3
   m_HealthPoints: 0
-  m_Normal: {fileID: 0}
-  m_LeftTopMissing: {fileID: 0}
-  m_RightTopMissing: {fileID: 0}
-  m_LeftBottomMissing: {fileID: 0}
-  m_RightBottomMissing: {fileID: 0}
-  m_OnlyBottom: {fileID: 0}
-  m_OnlyTop: {fileID: 0}
-  m_OnlyRight: {fileID: 0}
-  m_OnlyLeft: {fileID: 0}
-  m_DiagonalLeftBottomRightTop: {fileID: 0}
-  m_DiagonalRightBottomLeftTop: {fileID: 0}
-  m_OnlyLeftTop: {fileID: 0}
-  m_OnlyRightTop: {fileID: 0}
-  m_OnlyLeftBottom: {fileID: 0}
-  m_OnlyRightBottom: {fileID: 0}
+  m_Normal: {fileID: 21300010, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_LeftTopMissing: {fileID: 21300008, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_RightTopMissing: {fileID: 21300012, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_LeftBottomMissing: {fileID: 21300018, guid: 204532916f8a79a48ba983402462895f,
+    type: 3}
+  m_RightBottomMissing: {fileID: 21300022, guid: 204532916f8a79a48ba983402462895f,
+    type: 3}
+  m_OnlyBottom: {fileID: 21300002, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyTop: {fileID: 21300028, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyRight: {fileID: 21300006, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyLeft: {fileID: 21300014, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_DiagonalLeftBottomRightTop: {fileID: 21300026, guid: 204532916f8a79a48ba983402462895f,
+    type: 3}
+  m_DiagonalRightBottomLeftTop: {fileID: 21300030, guid: 204532916f8a79a48ba983402462895f,
+    type: 3}
+  m_OnlyLeftTop: {fileID: 21300024, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyRightTop: {fileID: 21300016, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyLeftBottom: {fileID: 21300004, guid: 204532916f8a79a48ba983402462895f, type: 3}
+  m_OnlyRightBottom: {fileID: 21300000, guid: 204532916f8a79a48ba983402462895f, type: 3}

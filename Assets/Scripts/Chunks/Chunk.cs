@@ -19,6 +19,9 @@ public class Chunk : MonoBehaviour {
     [SerializeField]
     private GameOfLife m_CaveGenerator;
 
+    [SerializeField]
+    private bool m_TopLayer;
+
     private Vector2 m_PositionFromOrigin;
     private Chunk m_TopChunk;
     private Chunk m_BottomChunk;
@@ -42,29 +45,94 @@ public class Chunk : MonoBehaviour {
     public void StartGeneration(Vector2 distanceFromOrigin)
     {
         m_PositionFromOrigin = distanceFromOrigin;
-        StartCoroutine(GenerateChunk());
+        if (!m_TopLayer)
+        {
+            StartCoroutine(GenerateChunk());
+        }
+        else
+        {
+            StartCoroutine(GenerateGroundLevel());
+        }
+    }
+
+    public IEnumerator GenerateGroundLevel()
+    {
+        for (int x = 0; x < m_Size; x++)
+        {
+            for (int y = 0; y < m_Size; y++)
+            {
+                if (y < 10)
+                {
+                    Vector3 position = transform.position + new Vector3(x, y) * 1.5f;
+                    BigBlock block = Instantiate(m_Prefab, position, Quaternion.identity).GetComponent<BigBlock>();
+                    if (y > 7)
+                    {
+                        block.Initialize(BlockServiceProvider.instance.GetBlock(2));
+                    }
+                    block.UpdateBlock();
+                    block.transform.parent = this.transform;
+                }
+            }
+        }
+        m_Done = true;
+        yield return new WaitForEndOfFrame();
     }
 
     public IEnumerator GenerateChunk()
     {
         Stack<GenericBlockData> blocks = m_Pool.GetObjectData();
 
-        byte[,] caves = m_CaveGenerator.GenerateCave();
-        yield return new WaitForEndOfFrame();
+        m_CaveGenerator.ResetGeneration();
+        yield return StartCoroutine(m_CaveGenerator.CaveCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] caves = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Caves Done");
+        
         //byte[,] dirt = m_CaveGenerator.GenerateCave();
 
-        byte[,] diamons = m_CaveGenerator.GenerateOres(15);
-        yield return new WaitForEndOfFrame();
-        byte[,] emeralds = m_CaveGenerator.GenerateOres(85);
-        yield return new WaitForEndOfFrame();
-        byte[,] gold = m_CaveGenerator.GenerateOres(50);
-        yield return new WaitForEndOfFrame();
-        byte[,] iron = m_CaveGenerator.GenerateOres(110);
-        yield return new WaitForEndOfFrame();
-        byte[,] ruby = m_CaveGenerator.GenerateOres(75);
-        yield return new WaitForEndOfFrame();
-        byte[,] sapphire = m_CaveGenerator.GenerateOres(75);
-        yield return new WaitForEndOfFrame();
+        m_CaveGenerator.SetMaxOres(15);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] diamons = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Diamonds Done");
+
+        m_CaveGenerator.SetMaxOres(85);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] emeralds = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Emeralds Done");
+
+        m_CaveGenerator.SetMaxOres(50);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] gold = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Gold Done");
+
+        m_CaveGenerator.SetMaxOres(110);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] iron = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Iron Done");
+
+        m_CaveGenerator.SetMaxOres(75);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] ruby = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Ruby Done");
+
+        m_CaveGenerator.SetMaxOres(75);
+        yield return StartCoroutine(m_CaveGenerator.OresCourotine());
+        while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
+        byte[,] sapphire = m_CaveGenerator.ReturnData();
+
+        Debug.Log("Sapphire Done");
+
 
         int Xmax = caves.GetLength(0);
         int Ymax = caves.GetLength(1);
@@ -226,7 +294,7 @@ public class Chunk : MonoBehaviour {
                         ore.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
                     }
 
-                    yield return new WaitForEndOfFrame();
+                    //yield return new WaitForEndOfFrame();
                     
                 }
             }
