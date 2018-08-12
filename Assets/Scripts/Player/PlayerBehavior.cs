@@ -35,8 +35,12 @@ public class PlayerBehavior : MonoBehaviour
     public Rigidbody2D _RigidBody;
     public BoxCollider2D _Collider;
 
+    //sprite
+    public Transform _Sprite;
+
     //PickAxe
-    public Transform _PickAxe;
+    public Transform _PickAxeTransform;
+    public PickAxe _PickAxeScript;
     public Animator _AxeAnim;
     public SpriteRenderer _AxeRenderer;
 
@@ -80,8 +84,10 @@ public class PlayerBehavior : MonoBehaviour
         _RigidBody = GetComponent<Rigidbody2D>();
         _Collider = GetComponent<BoxCollider2D>();
 
-        _AxeAnim = _PickAxe.GetComponent<Animator>();
-        _AxeRenderer = _PickAxe.GetComponent<SpriteRenderer>();
+        _PickAxeScript = _PickAxeTransform.GetComponent<PickAxe>();
+        _PickAxeScript._Player = this;
+        _AxeAnim = _PickAxeTransform.GetComponent<Animator>();
+        _AxeRenderer = _PickAxeTransform.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -126,8 +132,8 @@ public class PlayerBehavior : MonoBehaviour
             {
                 if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
                 {
-                    _AxeAnim.Play("Pickaxe");
-                    hit.transform.GetComponent<SmallBlock>().MineBlock();
+                    _PickAxeScript._Block = hit.collider.GetComponent<SmallBlock>();
+                    _AxeAnim.Play("Pickaxe");               
                     _MineTimer = _MineCoolDown;
                 }
             }
@@ -372,7 +378,7 @@ public class Idle : IState
 
     public void FixedUpdate()
     {
-        _Player.Mine();
+    
         _Player._MaxVelocity = Vector2.Lerp(_Player._MaxVelocity, _Player._BaseStats._MaxVelocity, Time.fixedDeltaTime * 4);
 
         if (!_Player._Grounded)
@@ -435,7 +441,6 @@ public class Walk : IState
 
     public void FixedUpdate()
     {
-        _Player.Mine();
 
         _Player._MaxVelocity = Vector2.Lerp(_Player._MaxVelocity, _Player._BaseStats._MaxVelocity, Time.fixedDeltaTime * 4);
 
@@ -492,20 +497,19 @@ public class Slide : IState
 
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
-            _Player._Renderer.flipX = false;
-            _Player._AxeRenderer.flipX = false;
+            _Player._Renderer.flipX = true;
+            _Player._AxeRenderer.flipX = true;
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
-            _Player._Renderer.flipX = true;
-            _Player._AxeRenderer.flipX = true;
+            _Player._Renderer.flipX = false;
+            _Player._AxeRenderer.flipX = false;
 
         }
     }
 
     public void FixedUpdate()
     {
-        _Player.Mine();
 
         if (!_Player._Grounded)
         {
@@ -766,6 +770,69 @@ public class Land : IState
     public void OnExit()
     {
 
+    }
+}
+
+public class HitLag : IState
+{
+    PlayerBehavior _Player;
+    IState _PreviousState;
+    float _TimeInHitLag;
+    float _Intensity;
+
+    Vector2 _PreAxePosition;
+
+    float _PreAnimeSpeed;
+    float _PreAxeAnimeSpeed;
+
+    public HitLag(PlayerBehavior player, IState previousState, float time, float intensity)
+    {
+        _Player = player;
+        _PreviousState = previousState;
+
+        _TimeInHitLag = time;
+        _Intensity = intensity;
+
+        _PreAxePosition = _Player._PickAxeTransform.localPosition;
+
+        _PreAnimeSpeed = _Player._Animator.speed;
+        _PreAxeAnimeSpeed = _Player._AxeAnim.speed;
+    }
+    public void OnEnter()
+    {
+        _Player._Animator.speed = 0;
+        _Player._AxeAnim.speed = 0;
+    }
+
+    public void Update()
+    {
+        _TimeInHitLag -= Time.deltaTime;
+        _Intensity -= Time.deltaTime;
+        _Player._Sprite.position = new Vector2(_Player.transform.position.x, _Player.transform.position.y) + (UnityEngine.Random.insideUnitCircle * _Intensity);
+        _Player._PickAxeTransform.position = new Vector2(_Player.transform.position.x, _Player.transform.position.y) + _PreAxePosition + (UnityEngine.Random.insideUnitCircle * _Intensity);
+
+        if (_TimeInHitLag <= 0)
+        {
+            _Player.SwitchState(_PreviousState);
+        }
+    }
+
+    public void FixedUpdate()
+    {
+
+    }
+    public void OnCollisionEnter(Collision2D collision)
+    {
+
+    }
+
+    public void OnExit()
+    {
+        _Player._Animator.speed = _PreAnimeSpeed;
+        _Player._AxeAnim.speed = _PreAxeAnimeSpeed;
+
+        _Player._Sprite.position = _Player.transform.position;
+        _Player._PickAxeTransform.localPosition = _PreAxePosition;
     }
 }
 

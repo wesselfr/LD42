@@ -16,6 +16,6 @@ MonoBehaviour:
   _FallForceMultiplier: 30
   _JumpForce: 17
   _AirDodgeForce: 30
-  _MineRange: 3.5
-  _MineCoolDown: 0.5
+  _MineRange: 2
+  _MineCoolDown: 0.3
   _MaxVelocity: {x: 10, y: 30}
