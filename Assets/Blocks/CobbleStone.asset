@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Cobblestone
   m_ID: 3
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1384939713302480, guid: d39926fc7c79ed044a53bf9b6d612c1f,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: 204532916f8a79a48ba983402462895f, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: 204532916f8a79a48ba983402462895f, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: 204532916f8a79a48ba983402462895f, type: 3}

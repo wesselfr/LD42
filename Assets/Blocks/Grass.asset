@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Grass
   m_ID: 4
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1148587551250246, guid: 7cce9df77864e28489a2592b5a14d897,
+    type: 2}
   m_Normal: {fileID: 21300006, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
   m_LeftTopMissing: {fileID: 21300000, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
   m_RightTopMissing: {fileID: 21300004, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}

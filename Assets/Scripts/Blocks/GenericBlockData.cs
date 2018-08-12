@@ -34,6 +34,8 @@ public class GenericBlockData : ScriptableObject {
     //private Sprite m_Texture;
     [SerializeField]
     private int m_HealthPoints;
+    [SerializeField]
+    private GameObject m_ItemToDrop;
 
     [Header("Art")]
     [SerializeField]
@@ -72,6 +74,7 @@ public class GenericBlockData : ScriptableObject {
     public string blockName { get { return m_BlockName; } }
     public int id { get { return m_ID; } }
     public int health { get { return m_HealthPoints; } }
+    public GameObject dropItem { get { return m_ItemToDrop; } }
     #endregion
 
     public Sprite GetSprite(BlockStates state)
