@@ -71,8 +71,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void GetComponents()
     {
-        _Animator = GetComponent<Animator>();
-        _Renderer = GetComponent<SpriteRenderer>();
         _RigidBody = GetComponent<Rigidbody2D>();
         _Collider = GetComponent<BoxCollider2D>();
     }
