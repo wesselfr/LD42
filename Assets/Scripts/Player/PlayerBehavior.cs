@@ -189,9 +189,9 @@ public class PlayerBehavior : MonoBehaviour
         {
             Vector2 pos = (new Vector2(_Collider.bounds.center.x, _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
             pos.y -= _Collider.bounds.size.y * 0.5f;
-            Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
+            Debug.DrawRay(pos, -transform.up * 0.3f, Color.red);
 
-            if (Physics2D.Raycast(pos, -transform.up, 0.1f, _StandableMasks))
+            if (Physics2D.Raycast(pos, -transform.up, 0.3f, _StandableMasks))
             {
                 _Grounded = true;
                 break;

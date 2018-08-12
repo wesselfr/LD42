@@ -20,7 +20,6 @@ public class SmallBlock : MonoBehaviour
         m_State = BlockState.Mined;
         m_BigBlock.UpdateBlock();
         GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<CircleCollider2D>().enabled = false;
     }
 
     public BlockState state { get { return m_State; } }

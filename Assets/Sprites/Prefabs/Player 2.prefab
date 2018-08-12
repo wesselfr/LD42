@@ -361,7 +361,7 @@ MonoBehaviour:
   _Collider: {fileID: 61968910921527532}
   _Sprite: {fileID: 4249459394776524}
   _PickAxeTransform: {fileID: 4249459394776524}
-  _PickAxeScript: {fileID: 0}
+  _PickAxeScript: {fileID: 114294330850616950}
   _AxeAnim: {fileID: 95083950966434280}
   _AxeRenderer: {fileID: 212803797307252932}
   _BaseStats: {fileID: 11400000, guid: 5de40d916c2f8f14bb346a1bd19d3ea6, type: 2}
@@ -484,7 +484,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 6.4, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
