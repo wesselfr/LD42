@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114343474063810990}
   - component: {fileID: 61498694481434522}
   - component: {fileID: 50309284684091918}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EmeraldPickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

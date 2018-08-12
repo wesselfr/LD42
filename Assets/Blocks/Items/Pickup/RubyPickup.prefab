@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114883843442790234}
   - component: {fileID: 61154393526193946}
   - component: {fileID: 50725194174033758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RubyPickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

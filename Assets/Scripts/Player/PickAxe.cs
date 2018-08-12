@@ -10,9 +10,9 @@ public class PickAxe : MonoBehaviour {
     public float _Intensity;
 
     void Mine()
-    {
-        _Player.SwitchState(new HitLag(_Player, _Player._State, HitlagTime, _Intensity));
-        _Block.MineBlock();
+    {      
+        _Block.MineBlock();     
         _Block.SpawnDroppedItem();
+        _Player.SwitchState(new HitLag(_Player, _Player._State, HitlagTime, _Intensity));
     }
 }

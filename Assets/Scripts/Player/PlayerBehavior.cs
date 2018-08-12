@@ -44,7 +44,6 @@ public class PlayerBehavior : MonoBehaviour
     public Animator _AxeAnim;
     public SpriteRenderer _AxeRenderer;
 
-
     [SerializeField] public BasePlayerStats _BaseStats;
     public float _AccelerationMultiplier, _FrictionMultiplier;
     public float _FallForceMultiplier;
@@ -59,7 +58,6 @@ public class PlayerBehavior : MonoBehaviour
     public bool _Grounded;
     //public bool _CanDodge;
     
-
     void Awake()
     {
         SetStats();
@@ -127,7 +125,9 @@ public class PlayerBehavior : MonoBehaviour
 
         if (hit)
         {
-            Debug.DrawLine(hit.transform.position, pos);
+            if (Input.GetKeyDown(KeyCode.L))
+                Debug.Log(hit.transform.gameObject.name, hit.transform.gameObject);
+                Debug.DrawLine(hit.transform.position, pos);
             if (_MineTimer <= 0)
             {
                 if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
@@ -189,9 +189,9 @@ public class PlayerBehavior : MonoBehaviour
         {
             Vector2 pos = (new Vector2(_Collider.bounds.center.x, _Collider.bounds.center.y) - new Vector2(_Collider.bounds.extents.x, 0)) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
             pos.y -= _Collider.bounds.size.y * 0.5f;
-            Debug.DrawRay(pos, -transform.up * 0.3f, Color.red);
+            Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
 
-            if (Physics2D.Raycast(pos, -transform.up, 0.3f, _StandableMasks))
+            if (Physics2D.Raycast(pos, -transform.up, 0.1f, _StandableMasks))
             {
                 _Grounded = true;
                 break;
@@ -504,7 +504,6 @@ public class Slide : IState
         {
             _Player._Renderer.flipX = false;
             _Player._AxeRenderer.flipX = false;
-
         }
     }
 

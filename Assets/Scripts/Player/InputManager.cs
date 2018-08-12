@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
-using XboxCtrlrInput;
+
 
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
-    [SerializeField] private XboxController controller;
-    [SerializeField] private bool _IsUsingController;
 
     //Inputs
     public bool _JumpButtonUp, _JumpButtonDown, _JumpButtonHeld;
@@ -96,15 +94,6 @@ public class InputManager : MonoBehaviour
 
     private void GetInput()
     {
-        // if (XCI.IsPluggedIn(controller))
-        {
-            //jump
-            _JumpButtonUp = XCI.GetButtonUp(XboxButton.B, controller);
-            _JumpButtonDown = XCI.GetButtonDown(XboxButton.B, controller);
-            _JumpButtonHeld = XCI.GetButton(XboxButton.B, controller);
-        }
-        //else
-        {
             //jump
             _JumpButtonUp = Input.GetKeyUp(KeyCode.Space);
             _JumpButtonDown = Input.GetKeyDown(KeyCode.Space);
@@ -139,7 +128,6 @@ public class InputManager : MonoBehaviour
             _MineButtonUp = Input.GetMouseButtonUp(0);
             _MineButtonDown = Input.GetMouseButtonDown(0);
             _MineButtonHeld = Input.GetMouseButton(0);
-        }
     }
 
     public Vector3 GetMousePosition2DWorldSpace()

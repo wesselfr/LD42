@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114939500305962968}
   - component: {fileID: 61969493285507866}
   - component: {fileID: 50870412451819180}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DiamondPickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
