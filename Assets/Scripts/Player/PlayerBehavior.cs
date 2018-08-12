@@ -27,13 +27,19 @@ public enum PlayerAnimationState
 
 public class PlayerBehavior : MonoBehaviour
 {
-
+    // player
     public IState _State;
     public PlayerAnimationState _AnimationState;
     public Animator _Animator;
     public SpriteRenderer _Renderer;
     public Rigidbody2D _RigidBody;
     public BoxCollider2D _Collider;
+
+    //PickAxe
+    public Transform _PickAxe;
+    public Animator _AxeAnim;
+    public SpriteRenderer _AxeRenderer;
+
 
     [SerializeField] public BasePlayerStats _BaseStats;
     public float _AccelerationMultiplier, _FrictionMultiplier;
@@ -73,6 +79,9 @@ public class PlayerBehavior : MonoBehaviour
     {
         _RigidBody = GetComponent<Rigidbody2D>();
         _Collider = GetComponent<BoxCollider2D>();
+
+        _AxeAnim = _PickAxe.GetComponent<Animator>();
+        _AxeRenderer = _PickAxe.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -117,6 +126,7 @@ public class PlayerBehavior : MonoBehaviour
             {
                 if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
                 {
+                    _AxeAnim.Play("Pickaxe");
                     hit.transform.GetComponent<SmallBlock>().MineBlock();
                     _MineTimer = _MineCoolDown;
                 }
@@ -414,10 +424,12 @@ public class Walk : IState
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = true;
+            _Player._AxeRenderer.flipX = true;
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
             _Player._Renderer.flipX = false;
+            _Player._AxeRenderer.flipX = false;
         }
     }
 
@@ -481,10 +493,13 @@ public class Slide : IState
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = false;
+            _Player._AxeRenderer.flipX = false;
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
             _Player._Renderer.flipX = true;
+            _Player._AxeRenderer.flipX = true;
+
         }
     }
 
@@ -588,10 +603,14 @@ public class Jump : IState
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = true;
+            _Player._AxeRenderer.flipX = true;
+
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
             _Player._Renderer.flipX = false;
+            _Player._AxeRenderer.flipX = false;
+
         }
     }
 
@@ -641,10 +660,14 @@ public class Fall : IState
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
             _Player._Renderer.flipX = true;
+            _Player._AxeRenderer.flipX = true;
+
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
             _Player._Renderer.flipX = false;
+            _Player._AxeRenderer.flipX = false;
+
         }
     }
 
