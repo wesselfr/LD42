@@ -22,6 +22,12 @@ public class Chunk : MonoBehaviour {
     [SerializeField]
     private bool m_TopLayer;
 
+    [SerializeField]
+    private BigBlockData[,] m_Data;
+
+    [SerializeField]
+    private Stack<BigBlock> m_CachedBlocks;
+
     private Vector2 m_PositionFromOrigin;
     private Chunk m_TopChunk;
     private Chunk m_BottomChunk;
@@ -29,22 +35,24 @@ public class Chunk : MonoBehaviour {
     private Chunk m_RightChunk;
 
     private bool m_Done = false;
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKeyDown(KeyCode.G))
+    
+    public IEnumerator Dispose()
+    {
+        int childs = transform.childCount;
+        for(int i =0; i< childs; i++)
         {
-            //StartCoroutine(GenerateChunk());
+            Destroy(transform.GetChild(i).gameObject);
         }
-	}
+        Destroy(this.gameObject);
+        yield return new WaitForEndOfFrame();
+    }
 
     public void StartGeneration(Vector2 distanceFromOrigin)
     {
         m_PositionFromOrigin = distanceFromOrigin;
+        m_Data = new BigBlockData[m_Size, m_Size];
+        m_CachedBlocks = new Stack<BigBlock>();
         if (!m_TopLayer)
         {
             StartCoroutine(GenerateChunk());
@@ -82,6 +90,10 @@ public class Chunk : MonoBehaviour {
                     }
                     block.UpdateBlock();
                     block.transform.parent = this.transform;
+
+                    //m_Data[x, y] = block.DisableBlock(); ;
+
+                    
                 }
             }
         }
@@ -314,6 +326,39 @@ public class Chunk : MonoBehaviour {
     }
 
     public bool done { get { return m_Done; } }
+
+    public void ShowChunk()
+    {
+        BlockServiceProvider provider = BlockServiceProvider.instance;
+        for (int x = 0; x < m_Size; x++)
+        {
+            for (int y = 0; y < m_Size; y++)
+            {
+                BigBlock block = provider.GetBlockFromPool();
+                block.EnableBlock(m_Data[x, y]);
+                m_CachedBlocks.Push(block);
+            }
+        }
+    }
+
+    public void HideChunk()
+    {
+        BlockServiceProvider provider = BlockServiceProvider.instance;
+        BigBlock[] blocks = m_CachedBlocks.ToArray();
+        int x = 0;
+        int y = -1;
+        for(int i = 0; i < blocks.Length; i++)
+        {
+            y++;
+            if (y > m_Size) { y = -1; x++; }
+
+            m_Data[x, y] = blocks[i].DisableBlock();
+            provider.AddToPool(blocks[i]);
+        }
+        m_CachedBlocks.Clear();
+
+        
+    }
 
     public Vector2 position { get { return m_PositionFromOrigin; } }
 

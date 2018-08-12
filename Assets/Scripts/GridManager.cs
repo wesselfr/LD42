@@ -40,7 +40,7 @@ public class GridManager : MonoBehaviour {
             }
         }
 
-        if(m_Player.transform.position.x - 37.5f< MinX && m_Chunks[m_Last].done)
+        if(m_Player.transform.position.x - 18.75f< MinX && m_Chunks[m_Last].done)
         {
             float newX = MinX - 37.5f;
             GameObject verticleChunkObject = Instantiate(m_VerticleChunkPrefab, new Vector3(newX, 0), Quaternion.identity);
@@ -49,7 +49,16 @@ public class GridManager : MonoBehaviour {
             m_Chunks.AddRange(chunkHandler.chunks);
             MinX = newX;
         }
-	}
+        if (m_Player.transform.position.x + 56.25f > MaxX && m_Chunks[m_Last].done)
+        {
+            float newX = MaxX + 37.5f;
+            GameObject verticleChunkObject = Instantiate(m_VerticleChunkPrefab, new Vector3(newX, 0), Quaternion.identity);
+            verticleChunkObject.transform.parent = this.gameObject.transform;
+            VerticleChunkHandler chunkHandler = verticleChunkObject.GetComponent<VerticleChunkHandler>();
+            m_Chunks.AddRange(chunkHandler.chunks);
+            MaxX = newX;
+        }
+    }
 
     public void CreateNewChunk()
     {
