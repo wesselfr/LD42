@@ -45,6 +45,11 @@ public class BigBlock : MonoBehaviour
         }
     }
 
+    public GameObject GetDroppableItem()
+    {
+        return m_Data.dropItem;
+    }
+
     public void EnableBlock(BigBlockData data)
     {
         m_SmallBlocks = data.smallBlocks;

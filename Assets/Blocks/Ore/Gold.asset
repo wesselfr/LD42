@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Gold
   m_ID: 3
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1964968768216176, guid: 4998881d84ce6e044b9a4c940c201a13,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: 0fb967ebb9ea3b148b69442d4aa0eaf3, type: 3}

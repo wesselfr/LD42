@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Sapphire
   m_ID: 6
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1242630255636966, guid: fe4879b85cc479046a92bda4c1fcb7b8,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: b9ea5f0bb130982458b1aecefe73f171, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: b9ea5f0bb130982458b1aecefe73f171, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: b9ea5f0bb130982458b1aecefe73f171, type: 3}

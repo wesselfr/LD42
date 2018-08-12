@@ -13,5 +13,6 @@ public class PickAxe : MonoBehaviour {
     {
         _Player.SwitchState(new HitLag(_Player, _Player._State, HitlagTime, _Intensity));
         _Block.MineBlock();
+        _Block.SpawnDroppedItem();
     }
 }

@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: AnimBig
+  m_Name: Player_Anim 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: State

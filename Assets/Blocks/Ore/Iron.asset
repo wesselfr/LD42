@@ -14,6 +14,8 @@ MonoBehaviour:
   m_BlockName: Iron
   m_ID: 4
   m_HealthPoints: 0
+  m_ItemToDrop: {fileID: 1368440607675606, guid: a891dbb122f4915439131624c496cc9c,
+    type: 2}
   m_Normal: {fileID: 21300010, guid: 41c70afa8c041a04c9ee5d9c90336f79, type: 3}
   m_LeftTopMissing: {fileID: 21300008, guid: 41c70afa8c041a04c9ee5d9c90336f79, type: 3}
   m_RightTopMissing: {fileID: 21300012, guid: 41c70afa8c041a04c9ee5d9c90336f79, type: 3}
