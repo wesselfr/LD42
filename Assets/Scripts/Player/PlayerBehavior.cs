@@ -28,7 +28,7 @@ public enum PlayerAnimationState
 public class PlayerBehavior : MonoBehaviour
 {
 
-    public  IState _State;
+    public IState _State;
     public PlayerAnimationState _AnimationState;
     public Animator _Animator;
     public SpriteRenderer _Renderer;
@@ -40,11 +40,15 @@ public class PlayerBehavior : MonoBehaviour
     public float _FallForceMultiplier;
     public float _JumpForce, _AirDodgeForce;
     public float _MineRange;
+    public float _MineCoolDown;
     public Vector2 _Velocity, _PreVelocity, _MaxVelocity;
+
+    float _MineTimer;
 
     public LayerMask _StandableMasks;
     public bool _Grounded;
-    public bool _CanDodge;
+    //public bool _CanDodge;
+    
 
     void Awake()
     {
@@ -61,6 +65,7 @@ public class PlayerBehavior : MonoBehaviour
         _JumpForce = _BaseStats._JumpForce;
         _AirDodgeForce = _BaseStats._AirDodgeForce;
         _MineRange = _BaseStats._MineRange;
+        _MineCoolDown = _BaseStats._MineCoolDown;
         _MaxVelocity = _BaseStats._MaxVelocity;
     }
 
@@ -97,6 +102,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public void Mine()
     {
+        _MineTimer -= Time.deltaTime;
 
         Vector3 pos = transform.position + new Vector3(0, _Collider.bounds.size.y * 0.5f);
 
@@ -109,9 +115,13 @@ public class PlayerBehavior : MonoBehaviour
         if (hit)
         {
             Debug.DrawLine(hit.transform.position, pos);
-            if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
+            if (_MineTimer <= 0)
             {
-                hit.transform.GetComponent<SmallBlock>().MineBlock();
+                if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
+                {
+                    hit.transform.GetComponent<SmallBlock>().MineBlock();
+                    _MineTimer = _MineCoolDown;
+                }
             }
         }
     }
@@ -190,7 +200,7 @@ public class PlayerBehavior : MonoBehaviour
         for (int i = 0; i < rays; i++)
         {
             //left
-           
+
             Vector2 leftPos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
             Debug.DrawRay(leftPos, -transform.right * 0.2f, Color.red);
             RaycastHit2D leftHit = Physics2D.Raycast(leftPos, -transform.right, 0.2f, _StandableMasks);
@@ -212,7 +222,7 @@ public class PlayerBehavior : MonoBehaviour
             }
 
             //right
- 
+
             Vector2 rightPos = new Vector2(_Collider.bounds.max.x, _Collider.bounds.min.y) + new Vector2(0, 1) * _Collider.bounds.size.y / (rays - 1) * i;
             Debug.DrawRay(rightPos, transform.right * 0.2f, Color.red);
             RaycastHit2D rightHit = Physics2D.Raycast(rightPos, transform.right, 0.2f, _StandableMasks);
@@ -265,7 +275,7 @@ public class PlayerBehavior : MonoBehaviour
         int rays = 4;
         for (int i = 0; i < rays; i++)
         {
-            Vector2 pos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.max.y) + new Vector2(1, 0) * _Collider.bounds.size.x  / (rays - 1) * i;
+            Vector2 pos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.max.y) + new Vector2(1, 0) * _Collider.bounds.size.x / (rays - 1) * i;
 
             Debug.DrawRay(pos, -transform.up * 0.1f, Color.red);
 
@@ -281,8 +291,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         Vector3 leftDir = new Vector3(-1, -1).normalized;
         Vector3 rightDir = new Vector3(1, -1).normalized;
-        Vector3 leftPos = new Vector2(_Collider.bounds.min.x,_Collider.bounds.min.y);
-        Vector3 rightPos = new Vector3(_Collider.bounds.max.x,_Collider.bounds.min.y);
+        Vector3 leftPos = new Vector2(_Collider.bounds.min.x, _Collider.bounds.min.y);
+        Vector3 rightPos = new Vector3(_Collider.bounds.max.x, _Collider.bounds.min.y);
 
         Debug.DrawRay(leftPos, leftDir * 0.1f, Color.red);
         Debug.DrawRay(rightPos, rightDir * 0.1f, Color.red);
@@ -335,7 +345,7 @@ public class Idle : IState
 
     public void OnEnter()
     {
-        _Player._CanDodge = true;
+        //_Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Idle);
     }
 
@@ -381,7 +391,7 @@ public class Walk : IState
 
     public void OnEnter()
     {
-        _Player._CanDodge = true;
+        // _Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Walk);
     }
 
@@ -405,11 +415,11 @@ public class Walk : IState
 
         if (Math.Sign(_Player._Velocity.x) > 0)
         {
-            _Player._Renderer.flipX = true;          
+            _Player._Renderer.flipX = true;
         }
         else if ((Math.Sign(_Player._Velocity.x) < 0))
         {
-            _Player._Renderer.flipX = false;           
+            _Player._Renderer.flipX = false;
         }
     }
 
@@ -455,7 +465,7 @@ public class Slide : IState
 
     public void OnEnter()
     {
-        _Player._CanDodge = true;
+        //_Player._CanDodge = true;
         _Player.SetAnimation(PlayerAnimationState.Slide);
     }
 
