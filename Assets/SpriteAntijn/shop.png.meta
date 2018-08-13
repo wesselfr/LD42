@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 37029bedfe1a51043b461d76db7310c1
+guid: 74da30c5244d8e94797f22cfd7be78b0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: SlimeTest_0
+    21300000: shop_0
+    21300002: shop_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -33,7 +34,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -85,21 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SlimeTest_0
+      name: shop_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1
-        width: 16
-        height: 14
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 1
+        y: 10
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e46005c59ab32946a2ed61a299c6b4a
+      spriteID: 041fe27c56a08c64a8ca027b27f0f6c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 19
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a55b7bc7fa6f03441b254beb8e3d2177
       vertices: []
       indices: 
       edges: []
@@ -107,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 10011a22d8a9d8d468d2bd113801efa6
+    spriteID: c85aacc82e8cdff46a66cf5fc8fc8278
     vertices: []
     indices: 
     edges: []

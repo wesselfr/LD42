@@ -171,8 +171,9 @@ public class PlayerContainer : MonoBehaviour
 
     public void SellGems()
     {
-        if (_IsTransfroming == false && _PlayersScripts[_Active]._Grounded)
+        if (_IsTransfroming == false && _PlayersScripts[_Active]._Grounded && ItemManager.Instance._Money >= 1000)
         {
+            ItemManager.Instance._Money -= 1000;
             _IsTransfroming = true;
             _TransformarionPos = _Players[_Active].transform.position;
             transform.position = _TransformarionPos;

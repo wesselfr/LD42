@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class SellButton : MonoBehaviour
 {
+    [SerializeField] NotEnoughText _Text;
     public void Button()
     {
-        PlayerContainer.Instance.SellGems();
+        if (ItemManager.Instance._Money >= 1000)
+        {
+            PlayerContainer.Instance.SellGems();
+        }
+        else
+        {
+            _Text._Alpha = 1;
+        }
     }
 }

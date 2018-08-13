@@ -6,7 +6,7 @@ public class ItemManager : MonoBehaviour
 {
     public static ItemManager Instance;
     public float _Growth;
-
+    public int _Money;
     private List<GenericItemData> _Cobbles;
     private List<GenericItemData> _Diamonds;
     private List<GenericItemData> _Dirts;
@@ -75,8 +75,9 @@ public class ItemManager : MonoBehaviour
         }
     }
 
-    public void AddGrowth(float value)
+    public void AddGrowth(float value , int money)
     {
         _Growth += value;
+        _Money += money;
     }
 }

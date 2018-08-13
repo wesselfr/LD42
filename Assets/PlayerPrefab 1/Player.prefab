@@ -1435,6 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Growth: 0
+  _Money: 0
 --- !u!114 &114338777316323808
 MonoBehaviour:
   m_ObjectHideFlags: 1
