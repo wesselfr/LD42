@@ -17,5 +17,5 @@ MonoBehaviour:
   _JumpForce: 15
   _AirDodgeForce: 30
   _MineRange: 4
-  _MineCoolDown: 0.3
+  _MineCoolDown: 0.05
   _MaxVelocity: {x: 10, y: 30}
