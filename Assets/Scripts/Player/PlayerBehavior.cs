@@ -360,6 +360,7 @@ public class Idle : IState
     public void OnEnter()
     {
         //_Player._CanDodge = true;
+        _Player._Velocity = Vector3.zero;
         _Player.SetAnimation(PlayerAnimationState.Idle);
     }
 
