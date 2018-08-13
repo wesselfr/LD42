@@ -1,22 +1,24 @@
 fileFormatVersion: 2
-guid: 981cee70bd533124eb556d030a250dad
+guid: a151a9d27d13d07439dcd428de7907ed
 TextureImporter:
   fileIDToRecycleName:
-    21300000: JumpSpriteSheet_0
-    21300002: JumpSpriteSheet_1
-    21300004: JumpSpriteSheet_2
-    21300006: JumpSpriteSheet_3
-    21300008: JumpSpriteSheet_4
-    21300010: JumpSpriteSheet_5
-    21300012: JumpSpriteSheet_6
-    21300014: JumpSpriteSheet_7
-    21300016: JumpSpriteSheet_8
-    21300018: JumpSpriteSheet_9
-    21300020: JumpSpriteSheet_10
-    21300022: JumpSpriteSheet_11
-    21300024: JumpSpriteSheet_12
-    21300026: JumpSpriteSheet_13
-    21300028: JumpSpriteSheet_14
+    21300000: trandsfomre_0
+    21300002: trandsfomre_1
+    21300004: trandsfomre_2
+    21300006: trandsfomre_3
+    21300008: trandsfomre_4
+    21300010: trandsfomre_5
+    21300012: trandsfomre_6
+    21300014: trandsfomre_7
+    21300016: trandsfomre_8
+    21300018: trandsfomre_9
+    21300020: trandsfomre_10
+    21300022: trandsfomre_11
+    21300024: trandsfomre_12
+    21300026: trandsfomre_13
+    21300028: trandsfomre_14
+    21300030: trandsfomre_15
+    21300032: trandsfomre_16
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -60,11 +62,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   spritePixelsToUnits: 10
-=======
-  spritePixelsToUnits: 100
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,376 +101,341 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: JumpSpriteSheet_0
+      name: trandsfomre_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5245686, y: 0.40172625}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        y: 88
+        width: 14
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4868f5631712d33498fb073a9aeb1f51
+      spriteID: 1631666ee4d2a8d4dac6badf36a41c78
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_1
+      name: trandsfomre_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.49999988, y: 0.38512707}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 16
+        y: 88
+        width: 16
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02db72527e0f85e4a9d079ec71343557
+      spriteID: 65537067bc72bbd4da1ec0feadd06b23
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_2
+      name: trandsfomre_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.49303794, y: 0.38512707}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 34
+        y: 88
+        width: 18
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cd023e98b406bd469b353a6da984774
+      spriteID: fd1b0e9c3dee9f44fa2b54b5c22a006a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_3
+      name: trandsfomre_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5278475, y: 0.38164604}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 54
+        y: 88
+        width: 21
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92839e83007676c4097e3485a2fddba3
+      spriteID: 2203ed6a5b74ec54685989a01ae790d5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_4
+      name: trandsfomre_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.47215176, y: 0.32943118}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 77
+        y: 88
+        width: 21
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e671f921a13a66d41a4005fa6b43257c
+      spriteID: 162728d8e251a7943bdc6442bc3554a5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_5
+      name: trandsfomre_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.49999952, y: 0.29810226}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 100
+        y: 88
+        width: 23
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a28077f5b60834408f6e4655a1f9ab5
+      spriteID: 8eb691017fcc34847ad58565792f14cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_6
+      name: trandsfomre_6
       rect:
         serializedVersion: 2
-        x: 384
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.48525953, y: 0.30345201}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 125
+        y: 88
+        width: 23
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1756c0338f8cdc242b52646133f45df9
+      spriteID: 6fe8c68f1b6e11d4fb79c9a505850ec7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_7
+      name: trandsfomre_7
       rect:
         serializedVersion: 2
-        x: 448
-        y: 64
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5000005, y: 0.23957384}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+        x: 3
+        y: 47
+        width: 23
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cc461dd534e9f9479f68be6c4dd4242
+      spriteID: 62c59785e85964c4195e4a3daecc2300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: JumpSpriteSheet_8
+      name: trandsfomre_8
       rect:
         serializedVersion: 2
-        x: 0
+        x: 30
+        y: 47
+        width: 29
+        height: 22
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8967f22ce9db34192c21df0f077ef6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_9
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 46
+        width: 33
+        height: 29
+      alignment: 9
+      pivot: {x: 0.55359554, y: 0.041938122}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c799729ff89bfda41aca55abff3063be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_10
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 41
+        width: 35
+        height: 34
+      alignment: 9
+      pivot: {x: 0.5691502, y: 0.1878845}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4d6fc59a88433469a52580dedfb081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_11
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 42
+        width: 41
+        height: 36
+      alignment: 9
+      pivot: {x: 0.6453061, y: 0.23108175}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20d0cbaccd27c449843093ac1ea3635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_12
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 10
+        width: 29
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de27c76a67bc8642b3c318c95b7be84
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_13
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 10
+        width: 29
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6c6f74d7f88e3478acc4825948d4df
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_14
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 9
+        width: 29
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785dbe0e0d79ea140adca1b4ea6ee4a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_15
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 9
+        width: 29
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2116ca4d5a1b8c143ab92637ddcada80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trandsfomre_16
+      rect:
+        serializedVersion: 2
+        x: 140
         y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
+        width: 42
+        height: 38
       alignment: 9
-      pivot: {x: 0.49508637, y: 0.2788833}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
+      pivot: {x: 0.65855664, y: 0.27304062}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dca327efe0767324187df701353ce7f1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5000001, y: 0.2592285}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c1a047e446c18344b8cb7f86998131d1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_10
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.50000024, y: 0.34276146}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 303f20878d4b1cf4592f18a97e8a2cc1
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_11
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.4705181, y: 0.37715736}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97c23914a80ccf643a8f78534574173a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_12
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5000005, y: 0.4115533}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7ced382e832cf9745b7c967e180b7f8f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_13
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.5000005, y: 0.40663958}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ae8a0d4849eb4d4c94470e00a0c538c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: JumpSpriteSheet_14
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.46069098, y: 0.32802033}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8109f1c384c68bf48941fca88d19af8a
+      spriteID: f51ffd06d90ad4742b95ced476114645
       vertices: []
       indices: 
       edges: []
@@ -480,7 +443,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7f4133a43e492d749973a0a28e02bb48
+    spriteID: f7de35b451591f649901ce75cef45d0d
     vertices: []
     indices: 
     edges: []

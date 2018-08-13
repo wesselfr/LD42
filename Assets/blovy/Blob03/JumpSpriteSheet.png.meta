@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 65d5557c6c98df848aaf2a7fc1602724
+guid: 981cee70bd533124eb556d030a250dad
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PickAxeSprireSheet_0
-    21300002: PickAxeSprireSheet_1
-    21300004: PickAxeSprireSheet_2
-    21300006: PickAxeSprireSheet_3
-    21300008: PickAxeSprireSheet_4
-    21300010: PickAxeSprireSheet_5
-    21300012: PickAxeSprireSheet_6
-    21300014: PickAxeSprireSheet_7
-    21300016: PickAxeSprireSheet_8
-    21300018: PickAxeSprireSheet_9
-    21300020: PickAxeSprireSheet_10
-    21300022: PickAxeSprireSheet_11
-    21300024: PickAxeSprireSheet_12
-    21300026: PickAxeSprireSheet_13
-    21300028: PickAxeSprireSheet_14
+    21300000: JumpSpriteSheet_0
+    21300002: JumpSpriteSheet_1
+    21300004: JumpSpriteSheet_2
+    21300006: JumpSpriteSheet_3
+    21300008: JumpSpriteSheet_4
+    21300010: JumpSpriteSheet_5
+    21300012: JumpSpriteSheet_6
+    21300014: JumpSpriteSheet_7
+    21300016: JumpSpriteSheet_8
+    21300018: JumpSpriteSheet_9
+    21300020: JumpSpriteSheet_10
+    21300022: JumpSpriteSheet_11
+    21300024: JumpSpriteSheet_12
+    21300026: JumpSpriteSheet_13
+    21300028: JumpSpriteSheet_14
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -78,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -89,7 +89,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,32 +99,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PickAxeSprireSheet_0
+      name: JumpSpriteSheet_0
       rect:
         serializedVersion: 2
         x: 23
-        y: 151
-        width: 18
+        y: 88
+        width: 23
         height: 18
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f5262250c7d5e74c92b03654e8f0cda
+      spriteID: 758cf1eda0935ce4a9bd30d173cb71e0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PickAxeSprireSheet_1
+      name: JumpSpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 151
-        width: 17
+        x: 85
+        y: 88
+        width: 23
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14056b7c578f75478df45f7d2d8d2f5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 88
+        width: 24
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f789b378306fdb48abcbeee2ba205c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 88
+        width: 23
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00158eb8512bf9479ba8ef6156195c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 85
+        width: 24
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59349f97a714f24494900250d316258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 82
+        width: 23
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ab6413c93340d4dacd5afad2eafbed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 79
+        width: 24
+        height: 26
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37640e27a8379c84cb278457794e0114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 78
+        width: 30
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e62946f3c943a4d94828357409696e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 12
+        width: 30
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d5b0168c8e16c459c7500ec750e4cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 11
+        width: 32
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98eabc8d848e20a4786fa7de7b945685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 17
+        width: 30
+        height: 29
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07dc6b3af656ad244b1bc95610bfdd00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 23
+        width: 24
         height: 23
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -133,267 +333,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 679e65be8a6a9894a87abc8805c1a7ad
+      spriteID: f5327bf88bfe14f499649e02c1ff6e02
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PickAxeSprireSheet_2
+      name: JumpSpriteSheet_12
       rect:
         serializedVersion: 2
-        x: 134
-        y: 151
-        width: 18
-        height: 18
-      alignment: 8
-      pivot: {x: 1, y: 0}
+        x: 275
+        y: 25
+        width: 24
+        height: 9
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b00ee7da4812dbc4fa65937fe3f78c0e
+      spriteID: c7dcf9983375cb540931b1198503e641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PickAxeSprireSheet_3
+      name: JumpSpriteSheet_13
       rect:
         serializedVersion: 2
-        x: 193
-        y: 143
+        x: 342
+        y: 25
         width: 23
-        height: 17
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf396f07ddea0a94e8ce6a1e16ffb5d1
+      spriteID: f138f939d3fa02a45a991c114be17919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PickAxeSprireSheet_4
+      name: JumpSpriteSheet_14
       rect:
         serializedVersion: 2
-        x: 263
-        y: 134
-        width: 18
-        height: 18
-      alignment: 3
-      pivot: {x: 1, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 97aa1488ba89d6646ab025de8859750f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_5
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 87
-        width: 18
-        height: 18
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e07f67475d1e43d47916b924b6e04acb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_6
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 87
-        width: 21
-        height: 23
-      alignment: 9
-      pivot: {x: 0.4057977, y: -0.0026065991}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7bb588a5307201e4c94661c916151033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_7
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 87
-        width: 18
-        height: 21
-      alignment: 8
-      pivot: {x: 1, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84b16c1ceff83d346920b518eddd90a4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_8
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 79
+        x: 403
+        y: 20
         width: 23
-        height: 25
-      alignment: 9
-      pivot: {x: 0.99436617, y: 0.33415192}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc967ceba306ce647850922dbc4704f0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_9
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 71
-        width: 21
-        height: 24
-      alignment: 9
-      pivot: {x: 0.9812535, y: 0.73422116}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 189e0aa92d7d6fb4e9a954cf6b39fc09
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_10
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 23
-        width: 20
-        height: 21
-      alignment: 9
-      pivot: {x: 0.11902523, y: 0.0090711685}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 193e82deb18ffd34d86920aa40c4ba04
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_11
-      rect:
-        serializedVersion: 2
-        x: 76
-        y: 24
-        width: 21
-        height: 23
-      alignment: 9
-      pivot: {x: 0.5907081, y: 0.008282371}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e4b2072289de7c4d93099c39a22420b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_12
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 21
-        width: 22
-        height: 21
-      alignment: 9
-      pivot: {x: 0.98487645, y: 0.14513353}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8d7b74e923e6cc440b65adc19b4182bc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_13
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 11
-        width: 23
-        height: 22
-      alignment: 9
-      pivot: {x: 0.9969237, y: 0.61475474}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a91930588d050e448680e0242688ec2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: PickAxeSprireSheet_14
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 7
-        width: 18
         height: 18
-      alignment: 3
-      pivot: {x: 1, y: 1}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dde4d88d4351afc4bb72c6543ca9abbb
+      spriteID: e35ba52e5ea125c43abdc16cc9e17b96
       vertices: []
       indices: 
       edges: []
@@ -401,7 +401,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 52aedb064585f9247a39271069843708
+    spriteID: 9e7dfb5db61cc54499512793466736be
     vertices: []
     indices: 
     edges: []
