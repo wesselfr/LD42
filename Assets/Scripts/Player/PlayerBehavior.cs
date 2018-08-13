@@ -25,8 +25,16 @@ public enum PlayerAnimationState
 
 }
 
+public enum PlayerSize
+{ 
+    Small,
+    Meduim,
+    Big
+}
+
 public class PlayerBehavior : MonoBehaviour
 {
+    public PlayerSize _Size;
     // player
     public IState _State;
     public PlayerAnimationState _AnimationState;
@@ -57,6 +65,8 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask _StandableMasks;
     public bool _Grounded;
     //public bool _CanDodge;
+
+    [SerializeField] private GameObject _HighLight;
     
     void Awake()
     {
@@ -125,17 +135,32 @@ public class PlayerBehavior : MonoBehaviour
 
         if (hit)
         {
-            if (Input.GetKeyDown(KeyCode.L))
-                Debug.Log(hit.transform.gameObject.name, hit.transform.gameObject);
-                Debug.DrawLine(hit.transform.position, pos);
+            //if (Input.GetKeyDown(KeyCode.L))
+            //    Debug.Log(hit.transform.gameObject.name, hit.transform.gameObject);
+            //    Debug.DrawLine(hit.transform.position, pos);
+
+            if (_HighLight.activeSelf == false)
+            {
+                _HighLight.SetActive(true);
+            }
+
+            _HighLight.transform.position = hit.transform.position;
+
             if (_MineTimer <= 0)
             {
                 if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
                 {
                     _PickAxeScript._Block = hit.collider.GetComponent<SmallBlock>();
-                    _AxeAnim.Play("Pickaxe");               
+                    _AxeAnim.Play("Pickaxe");
                     _MineTimer = _MineCoolDown;
                 }
+            }
+        }
+        else
+        {
+            if (_HighLight.activeSelf == true)
+            {
+                _HighLight.SetActive(false);
             }
         }
     }
@@ -594,6 +619,7 @@ public class Jump : IState
         _Player._Velocity.y = _JumpForce;
         _Player._FrictionMultiplier = _Player._FrictionMultiplier * 0.25f;
         _Player.SetAnimation(PlayerAnimationState.Jump);
+        AudioManager.Instance.Play(Audio.Jump, _Player._Size);
     }
 
     public void Update()
@@ -751,6 +777,7 @@ public class Land : IState
     public void OnEnter()
     {
         _Player.SetAnimation(PlayerAnimationState.Land);
+        AudioManager.Instance.Play(Audio.drop, _Player._Size);
     }
 
     public void Update()

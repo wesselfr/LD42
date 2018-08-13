@@ -11,8 +11,12 @@ public class ItemTrigger : MonoBehaviour {
     {
         if (collision.gameObject.CompareTag("Item"))
         {
-            collision.gameObject.GetComponent<DroppedItem>().DestroyItem();
+            DroppedItem item = collision.gameObject.GetComponent<DroppedItem>();
+            ItemManager.Instance.AddItem(item.Data);
+            ItemManager.Instance.AddGrowth(item.growthMultiplier);
+            item.gameObject.GetComponent<DroppedItem>().DestroyItem();
             _TransformAnim.Play("Eating");
+            AudioManager.Instance.Play(Audio.eat, PlayerSize.Small);
         }
     }
 }

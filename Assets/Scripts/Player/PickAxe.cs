@@ -14,5 +14,6 @@ public class PickAxe : MonoBehaviour {
         _Block.MineBlock();     
         _Block.SpawnDroppedItem();
         _Player.SwitchState(new HitLag(_Player, _Player._State, HitlagTime, _Intensity));
+        AudioManager.Instance.Play(Audio.dig, PlayerSize.Small);
     }
 }
