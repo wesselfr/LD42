@@ -16,18 +16,22 @@ MonoBehaviour:
   m_HealthPoints: 0
   m_ItemToDrop: {fileID: 1148587551250246, guid: 7cce9df77864e28489a2592b5a14d897,
     type: 2}
-  m_Normal: {fileID: 21300006, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
-  m_LeftTopMissing: {fileID: 21300000, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
-  m_RightTopMissing: {fileID: 21300004, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
-  m_LeftBottomMissing: {fileID: 0}
-  m_RightBottomMissing: {fileID: 0}
+  m_Normal: {fileID: 21300010, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_LeftTopMissing: {fileID: 21300008, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_RightTopMissing: {fileID: 21300012, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_LeftBottomMissing: {fileID: 21300018, guid: 47b3ebc97526f3942bd94003f5c38a5f,
+    type: 3}
+  m_RightBottomMissing: {fileID: 21300022, guid: 47b3ebc97526f3942bd94003f5c38a5f,
+    type: 3}
   m_OnlyBottom: {fileID: 21300002, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
-  m_OnlyTop: {fileID: 0}
-  m_OnlyRight: {fileID: 0}
-  m_OnlyLeft: {fileID: 0}
-  m_DiagonalLeftBottomRightTop: {fileID: 0}
-  m_DiagonalRightBottomLeftTop: {fileID: 0}
-  m_OnlyLeftTop: {fileID: 0}
-  m_OnlyRightTop: {fileID: 0}
-  m_OnlyLeftBottom: {fileID: 0}
-  m_OnlyRightBottom: {fileID: 0}
+  m_OnlyTop: {fileID: 21300028, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyRight: {fileID: 21300006, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyLeft: {fileID: 21300014, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_DiagonalLeftBottomRightTop: {fileID: 21300026, guid: 47b3ebc97526f3942bd94003f5c38a5f,
+    type: 3}
+  m_DiagonalRightBottomLeftTop: {fileID: 21300030, guid: 47b3ebc97526f3942bd94003f5c38a5f,
+    type: 3}
+  m_OnlyLeftTop: {fileID: 21300024, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyRightTop: {fileID: 21300016, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyLeftBottom: {fileID: 21300004, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
+  m_OnlyRightBottom: {fileID: 21300000, guid: 47b3ebc97526f3942bd94003f5c38a5f, type: 3}
