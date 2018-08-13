@@ -12,9 +12,12 @@ public enum Music
     Credits
 }
 
+public delegate void MusicEvent();
 public class MusicManager : MonoBehaviour {
 
     public static MusicManager instance;
+
+    public MusicEvent OnMusicDone;
 
     [SerializeField]
     AudioClip m_Start, m_StartLoop, m_GameLoop, m_GameLoop2, m_Ending, m_Credits;
@@ -91,7 +94,7 @@ public class MusicManager : MonoBehaviour {
         while (m_AudioSource.volume > 0)
         {
             m_AudioSource.volume -= 0.05f;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
         m_AudioSource.volume = 1;
         SwitchMusic();
@@ -102,6 +105,16 @@ public class MusicManager : MonoBehaviour {
         m_LastState = state;
         m_State = state;
         if (force) { StartCoroutine(FadeAndStart()); }
+    }
+
+    public void PlayEndMusic()
+    {
+        m_State = Music.Ending;
+        if (m_LastState != Music.Ending)
+        {
+            m_LastState = Music.Ending;
+            StartCoroutine(FadeAndStart());
+        }
     }
 
 
