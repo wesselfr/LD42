@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114824024210132820}
   - component: {fileID: 61937231191553284}
   - component: {fileID: 50576602104013336}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: CobblePickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

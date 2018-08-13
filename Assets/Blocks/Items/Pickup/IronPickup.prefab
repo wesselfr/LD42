@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114701000612989828}
   - component: {fileID: 61801491835281954}
   - component: {fileID: 50214240247364660}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: IronPickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

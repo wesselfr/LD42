@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 114034336849958242}
   - component: {fileID: 61203841164223458}
   - component: {fileID: 50612702015490444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DirtPickup
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
