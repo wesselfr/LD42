@@ -25,8 +25,16 @@ public enum PlayerAnimationState
 
 }
 
+public enum PlayerSize
+{ 
+    Small,
+    Meduim,
+    Big
+}
+
 public class PlayerBehavior : MonoBehaviour
 {
+    public PlayerSize _Size;
     // player
     public IState _State;
     public PlayerAnimationState _AnimationState;
@@ -611,6 +619,7 @@ public class Jump : IState
         _Player._Velocity.y = _JumpForce;
         _Player._FrictionMultiplier = _Player._FrictionMultiplier * 0.25f;
         _Player.SetAnimation(PlayerAnimationState.Jump);
+        AudioManager.Instance.Play(Audio.Jump, _Player._Size);
     }
 
     public void Update()
@@ -768,6 +777,7 @@ public class Land : IState
     public void OnEnter()
     {
         _Player.SetAnimation(PlayerAnimationState.Land);
+        AudioManager.Instance.Play(Audio.drop, _Player._Size);
     }
 
     public void Update()

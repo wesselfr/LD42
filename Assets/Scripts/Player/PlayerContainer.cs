@@ -75,14 +75,15 @@ public class PlayerContainer : MonoBehaviour
         _FlipX = _PlayersScripts[_Active]._Renderer.flipX;
         _Players[_Active].SetActive(false);
         
-
         if (_Active == (int)Size.small)
         {
             _Animator.Play("1");
+            AudioManager.Instance.Play(Audio.Grow, PlayerSize.Small);
         }
         if (_Active == (int)Size.medium)
         {
             _Animator.Play("2");
+            AudioManager.Instance.Play(Audio.Grower, PlayerSize.Small);
         }    
     }
 

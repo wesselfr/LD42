@@ -16,6 +16,7 @@ public class ItemTrigger : MonoBehaviour {
             ItemManager.Instance.AddGrowth(item.growthMultiplier);
             item.gameObject.GetComponent<DroppedItem>().DestroyItem();
             _TransformAnim.Play("Eating");
+            AudioManager.Instance.Play(Audio.eat, PlayerSize.Small);
         }
     }
 }
