@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 382727f562b251e429bb2e179ba9fe63
+guid: 74da30c5244d8e94797f22cfd7be78b0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: EatSpriteSheet_0
-    21300002: EatSpriteSheet_1
-    21300004: EatSpriteSheet_2
+    21300000: shop_0
+    21300002: shop_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -35,7 +34,7 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
+    aniso: 1
     mipBias: -100
     wrapU: 1
     wrapV: 1
@@ -48,11 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
   spritePixelsToUnits: 10
-=======
-  spritePixelsToUnits: 100
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,76 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EatSpriteSheet_0
+      name: shop_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.48341626, y: 0.36180204}
-=======
+        x: 1
+        y: 10
+        width: 42
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c35f3c88a00949c48b94bb48ea5b82d0
+      spriteID: 041fe27c56a08c64a8ca027b27f0f6c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: EatSpriteSheet_1
+      name: shop_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.49447215, y: 0.36180204}
-=======
+        x: 57
+        y: 19
+        width: 19
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e023f0c61c9c3714caf3f9f67c0d81d2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: EatSpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-<<<<<<< HEAD
-      alignment: 9
-      pivot: {x: 0.49815726, y: 0.36548734}
-=======
-      alignment: 0
-      pivot: {x: 0, y: 0}
->>>>>>> 4a4eb5b032752ad04230165a8fcd7318c29ddae7
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 683ff7d100a1550438b46b4633ae4a92
+      spriteID: a55b7bc7fa6f03441b254beb8e3d2177
       vertices: []
       indices: 
       edges: []
@@ -168,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1bbfd7672d060924b84d961a528d8424
+    spriteID: c85aacc82e8cdff46a66cf5fc8fc8278
     vertices: []
     indices: 
     edges: []
