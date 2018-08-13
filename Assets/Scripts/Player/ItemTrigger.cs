@@ -12,7 +12,6 @@ public class ItemTrigger : MonoBehaviour {
         if (collision.gameObject.CompareTag("Item"))
         {
             DroppedItem item = collision.gameObject.GetComponent<DroppedItem>();
-            ItemManager.Instance.AddItem(item.Data);
             ItemManager.Instance.AddGrowth(item.growthMultiplier, item.moneyValue);
             item.gameObject.GetComponent<DroppedItem>().DestroyItem();
             _TransformAnim.Play("Eating");
