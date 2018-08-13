@@ -374,7 +374,7 @@ public class Chunk : MonoBehaviour {
 
                                                 //GenerateStore (Test)
 
-                                                int RandomStore = Random.Range(0, 3);
+                                                int RandomStore = Random.Range(0, 2);
 
                                                 if (RandomStore > 0)
                                                 {
