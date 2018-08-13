@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Sprite: {fileID: 21300000, guid: 6e48ff1227bded64a81ade89dccac32d, type: 3}
   m_MoneyValue: 45
   m_GrowMultiplier: 0.8
+  m_Data: {fileID: 11400000, guid: ceabdf68b3dcb7146929ea1ae0c69ac0, type: 2}
 --- !u!212 &212765200380872660
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -13,10 +13,12 @@ public class PlayerContainer : MonoBehaviour
 
     [SerializeField] private GameObject[] _Players;
     [SerializeField] private PlayerBehavior[] _PlayersScripts;
-    private int _Active;
+    [SerializeField] private int _Active;
 
     private Animator _Animator;
     private SpriteRenderer _Renderer;
+
+    bool _IsTransfroming;
 
 
     Vector3 _TransformarionPos;
@@ -38,8 +40,7 @@ public class PlayerContainer : MonoBehaviour
 
     private void Update()
     {
-        transform.position = _Players[_Active].transform.position;
-        _Renderer.flipX = _PlayersScripts[_Active]._Renderer.flipX;
+
         if (Input.GetKeyDown(KeyCode.G) && _PlayersScripts[_Active]._Grounded)
         {
             if (_Active < _Players.Length - 1)
@@ -47,14 +48,30 @@ public class PlayerContainer : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H) && _PlayersScripts[_Active]._Grounded)
         {
-            if(_Active > 0)
-            ShrinkTest();
+            if (_Active > 0)
+                ShrinkTest();
         }
+
+        if (ItemManager.Instance._Growth >= 100 && _PlayersScripts[_Active]._Grounded && _Active == (int)Size.small && _IsTransfroming == false )
+        {
+            if (_Active < _Players.Length - 1)
+                Grow();
+        }
+        else if (ItemManager.Instance._Growth >= 300 && _PlayersScripts[_Active]._Grounded && _Active == (int)Size.medium && _IsTransfroming == false)
+        {
+            if (_Active < _Players.Length - 1)
+                Grow();
+        }
+
+        transform.position = _Players[_Active].transform.position;
+        _Renderer.flipX = _PlayersScripts[_Active]._Renderer.flipX;
     }
 
     private void Grow()
     {
+        _IsTransfroming = true;
         _TransformarionPos = _Players[_Active].transform.position;
+        transform.position = _TransformarionPos;
         _FlipX = _PlayersScripts[_Active]._Renderer.flipX;
         _Players[_Active].SetActive(false);
         
@@ -66,7 +83,7 @@ public class PlayerContainer : MonoBehaviour
         if (_Active == (int)Size.medium)
         {
             _Animator.Play("2");
-        }
+        }    
     }
 
     public void GrowEnd()
@@ -77,6 +94,7 @@ public class PlayerContainer : MonoBehaviour
         _PlayersScripts[_Active]._Renderer.flipX = _FlipX;
         _PlayersScripts[_Active]._AxeRenderer.flipX = _FlipX;
         _Players[_Active].transform.position = _TransformarionPos;
+        _IsTransfroming = false;
     }
 
 

@@ -57,6 +57,8 @@ public class PlayerBehavior : MonoBehaviour
     public LayerMask _StandableMasks;
     public bool _Grounded;
     //public bool _CanDodge;
+
+    [SerializeField] private GameObject _HighLight;
     
     void Awake()
     {
@@ -125,17 +127,32 @@ public class PlayerBehavior : MonoBehaviour
 
         if (hit)
         {
-            if (Input.GetKeyDown(KeyCode.L))
-                Debug.Log(hit.transform.gameObject.name, hit.transform.gameObject);
-                Debug.DrawLine(hit.transform.position, pos);
+            //if (Input.GetKeyDown(KeyCode.L))
+            //    Debug.Log(hit.transform.gameObject.name, hit.transform.gameObject);
+            //    Debug.DrawLine(hit.transform.position, pos);
+
+            if (_HighLight.activeSelf == false)
+            {
+                _HighLight.SetActive(true);
+            }
+
+            _HighLight.transform.position = hit.transform.position;
+
             if (_MineTimer <= 0)
             {
                 if (InputManager.instance._MineButtonDown || InputManager.instance._MineButtonHeld)
                 {
                     _PickAxeScript._Block = hit.collider.GetComponent<SmallBlock>();
-                    _AxeAnim.Play("Pickaxe");               
+                    _AxeAnim.Play("Pickaxe");
                     _MineTimer = _MineCoolDown;
                 }
+            }
+        }
+        else
+        {
+            if (_HighLight.activeSelf == true)
+            {
+                _HighLight.SetActive(false);
             }
         }
     }
