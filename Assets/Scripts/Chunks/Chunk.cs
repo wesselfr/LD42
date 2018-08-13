@@ -28,6 +28,9 @@ public class Chunk : MonoBehaviour {
     [SerializeField]
     private Stack<BigBlock> m_CachedBlocks;
 
+    [SerializeField]
+    private GameObject m_Shop;
+
     private Vector2 m_PositionFromOrigin;
     private Chunk m_TopChunk;
     private Chunk m_BottomChunk;
@@ -100,6 +103,7 @@ public class Chunk : MonoBehaviour {
         m_Done = true;
         yield return new WaitForEndOfFrame();
     }
+
 
     public IEnumerator GenerateChunk()
     {
@@ -323,6 +327,109 @@ public class Chunk : MonoBehaviour {
             }
         }
         m_Done = true;
+        yield return StartCoroutine(PopulateCaves(caves));
+    }
+
+    public IEnumerator PopulateGround()
+    {
+        yield return new WaitForEndOfFrame();
+    }
+
+    public IEnumerator PopulateCaves(byte[,] caveData)
+    {
+        byte[,] caves = caveData;
+        Stack<Vector2> m_cachedCave = new Stack<Vector2>();
+        for (int x = 0; x < m_Size; x++)
+        {
+            for (int y = 0; y < m_Size; y++)
+            {
+                if (caves[x, y] > 15)
+                {
+                    if (x - 1 > 0 && x + 1 < m_Size)
+                    {
+                        if(y-1 > 0)
+                        {
+                            if(caves[x-1,y]> 15 && caves[x+1, y] > 15)
+                            {
+                                
+                                //Ground Check
+                                if(caves[x - 1, y - 1] < 15 && caves[x,y-1] < 15 && caves[x + 1, y - 1] < 15)
+                                {
+                                    for (int heightCheck = 0; heightCheck < 4;)
+                                    {
+                                        if(caves[x-1, y+heightCheck] > 15 && caves[x, y + heightCheck] > 15 && caves[x + 1, y + heightCheck] > 15)
+                                        {
+                                            heightCheck++;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                        yield return new WaitForEndOfFrame();
+                                        if ( y + heightCheck < m_Size)
+                                        {
+                                            Debug.Log(heightCheck);
+                                            if (heightCheck == 4)
+                                            {
+
+                                                //GenerateStore (Test)
+
+                                                int RandomStore = Random.Range(0, 3);
+
+                                                if (RandomStore > 0)
+                                                {
+                                                    GenericBlockData dirt = BlockServiceProvider.instance.GetBlock(2);
+
+                                                    Vector3 leftPosition = transform.position + new Vector3(x - 1, y) * 1.5f;
+                                                    Vector3 centerPosition = transform.position + new Vector3(x, y) * 1.5f;
+                                                    Vector3 rightPosition = transform.position + new Vector3(x + 1, y) * 1.5f;
+
+                                                    BigBlock leftBlock = Instantiate(m_Prefab, leftPosition, Quaternion.identity).GetComponent<BigBlock>();
+                                                    BigBlock centerBlock = Instantiate(m_Prefab, centerPosition, Quaternion.identity).GetComponent<BigBlock>();
+                                                    BigBlock rightBlock = Instantiate(m_Prefab, rightPosition, Quaternion.identity).GetComponent<BigBlock>();
+
+                                                    leftBlock.Initialize(dirt);
+                                                    centerBlock.Initialize(dirt);
+                                                    rightBlock.Initialize(dirt);
+
+                                                    leftBlock.UpdateBlock();
+                                                    centerBlock.UpdateBlock();
+                                                    rightBlock.UpdateBlock();
+
+                                                    if(RandomStore == 1)
+                                                    {
+                                                        Vector3 storePosition = transform.position + new Vector3(x, y + 1) * 1.5f;
+                                                        Instantiate(m_Shop, storePosition, Quaternion.identity);
+                                                    }
+
+                                                    yield return new WaitForEndOfFrame();
+                                                }
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    private struct Cave
+    {
+        private byte[,] m_Cave;
+        public Cave(byte[,] cave)
+        {
+            m_Cave = cave;
+        }
+        public void AddToCave(byte[,] bit)
+        {
+           
+        } 
+        public byte[,] cave { get { return m_Cave; } }
     }
 
     public bool done { get { return m_Done; } }
