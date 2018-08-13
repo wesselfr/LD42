@@ -114,7 +114,7 @@ public class Chunk : MonoBehaviour {
         
         //byte[,] dirt = m_CaveGenerator.GenerateCave();
 
-        m_CaveGenerator.SetMaxOres(15);
+        m_CaveGenerator.SetMaxOres(40);
         yield return StartCoroutine(m_CaveGenerator.OresCourotine());
         while (!m_CaveGenerator.done) { yield return new WaitForEndOfFrame(); }
         byte[,] diamons = m_CaveGenerator.ReturnData();

@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericItem : MonoBehaviour
-{
-
-}
-
 public class ShopHandler : MonoBehaviour {
 
     [Header("UI")]
@@ -14,6 +9,7 @@ public class ShopHandler : MonoBehaviour {
     private GameObject m_StoreUI, m_InteractKey;
 
     private bool m_StoreActive = false;
+    private bool m_PlayerInBounds;
 
 	// Use this for initialization
 	void Start () {
@@ -25,8 +21,13 @@ public class ShopHandler : MonoBehaviour {
     {
         //Switch UI
         m_StoreActive = !m_StoreActive;
-        m_StoreUI.SetActive(m_StoreActive);
-        m_InteractKey.SetActive(!m_StoreActive);
+        if (m_StoreActive) { EnterStore(); } else { LeaveStore(); }
+    }
+    public void EnterStore()
+    {
+        m_StoreActive = true;
+        m_StoreUI.SetActive(true);
+        m_InteractKey.SetActive(false);
     }
     public void LeaveStore()
     {
@@ -47,7 +48,7 @@ public class ShopHandler : MonoBehaviour {
         }
     }
 
-    public void BuyItem(GenericItem item)
+    public void BuyItem(GenericItemData item)
     {
         //Check money, than buy item.
         Debug.Log("Buy item");
@@ -59,14 +60,14 @@ public class ShopHandler : MonoBehaviour {
         if (collision.tag.Contains("Player"))
         {
             m_InteractKey.SetActive(true);
+            m_PlayerInBounds = true;
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void Update()
     {
-        if (collision.gameObject.tag.Contains("Player"))
+        if (m_PlayerInBounds)
         {
-            //Interact key. Toggles Store.
             if (Input.GetKeyDown(KeyCode.E))
             {
                 ToggleStore();
@@ -76,9 +77,10 @@ public class ShopHandler : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag.Contains("Player"))
+        if (collision.tag.Contains("Player"))
         {
             LeaveStore();
+            m_PlayerInBounds = false;
         }
     }
 }
