@@ -131,7 +131,7 @@ public class AudioManager : MonoBehaviour
                         _AudioSourse.Play();
                         break;
                     case Audio.Jump:
-                        _AudioSourse.clip = _Clips[8];
+                        _AudioSourse.clip = _Clips[9];
                         _AudioSourse.Play();
                         break;
                 }

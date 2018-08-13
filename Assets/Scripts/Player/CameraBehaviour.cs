@@ -108,6 +108,7 @@ namespace Level9
         }
         public void Update()
         {
+            float interfal;
             _RumbleTime -= Time.deltaTime;
             _RumbleIntensity -= Time.deltaTime;
 
