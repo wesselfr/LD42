@@ -188,10 +188,11 @@ public class PlayerContainer : MonoBehaviour
 
     public void CloseDoor()
     {
+        _Players[_Active].SetActive(false);
         _TransformarionPos = _Players[_Active].transform.position;
         transform.position = _TransformarionPos;
         _FlipX = _PlayersScripts[_Active]._Renderer.flipX;
-        _Players[_Active].SetActive(false);
+        
     }
 
     public void ExitDoor()
